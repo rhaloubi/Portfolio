@@ -6,6 +6,12 @@ import { useState } from "react";
 import Preloader from "~/components/Preloader";
 import PageTransition from "~/components/PageTransition";
 import { ColorProvider } from "~/context/ColorContext";
+import { Azeret_Mono } from "next/font/google";
+
+const azeretMono = Azeret_Mono({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function RootLayout({
   children,
@@ -13,7 +19,7 @@ export default function RootLayout({
   const [loading, setLoading] = useState(true);
 
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={`${GeistSans.variable ,azeretMono.className}`}>
       <body>
         <ColorProvider>
           {loading && <Preloader onComplete={() => setLoading(false)} />}
