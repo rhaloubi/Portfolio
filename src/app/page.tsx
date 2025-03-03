@@ -1,25 +1,49 @@
 "use client";
 
-import Link from "next/link";
-import { useColor } from "~/context/ColorContext";
+import { useRef, useState, useEffect } from "react";
+import Header from "../layout/header";
 
 export default function HomePage() {
-  const { setNextColor } = useColor();
+  const [showHomepage, setShowHomepage] = useState(false);
 
-  const handleTransition = () => {
-    setNextColor('#7f1d1d'); // red-900 color
-  };
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    setShowHomepage(true);
+  }, []);
+
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-blue-900 text-white">
-      <h1 className="text-6xl font-bold mb-8">Home Page</h1>
-      <Link 
-        href="/about"
-        onClick={handleTransition}
-        className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200 transition-colors"
-      >
-        Go to About
-      </Link>
+    <main className="flex min-h-screen flex-col bg-black text-white">
+      {/* Homepage Content */}
+        {/* Header */}
+       < Header/>
+
+        {/* Main Content */}
+        <div ref={contentRef} className="relative h-screen">
+          <div className="absolute bottom-0 left-0 p-8 w-full grid grid-cols-4 gap-8 text-sm">
+            <div>
+              <h3>Dior Homme</h3>
+              <p className="opacity-50">Jonathan Alric</p>
+              <p className="opacity-50">Commercials</p>
+            </div>
+            <div>
+              <h3>Le Louvre x Joker</h3>
+              <p className="opacity-50">Manu Cossu</p>
+              <p className="opacity-50">Commercials</p>
+            </div>
+            <div>
+              <h3>We Are From LA</h3>
+              <p className="opacity-50">Clément Durou</p>
+              <p className="opacity-50">Commercials</p>
+            </div>
+            <div>
+              <h3>Dom Pérignon</h3>
+              <p className="opacity-50">The Labour Of Creation</p>
+              <p className="opacity-50">Commercials</p>
+            </div>
+          </div>
+        </div>
     </main>
   );
 }

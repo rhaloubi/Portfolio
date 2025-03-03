@@ -4,8 +4,7 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { useState } from "react";
 import Preloader from "~/components/Preloader";
-import PageTransition from "~/components/PageTransition";
-import { ColorProvider } from "~/context/ColorContext";
+
 import { Azeret_Mono } from "next/font/google";
 
 const azeretMono = Azeret_Mono({
@@ -21,12 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable ,azeretMono.className}`}>
       <body>
-        <ColorProvider>
           {loading && <Preloader onComplete={() => setLoading(false)} />}
-          <PageTransition>
             {children}
-          </PageTransition>
-        </ColorProvider>
       </body>
     </html>
   );
