@@ -50,7 +50,7 @@ export default function Header() {
   };
 
   return (
-      <div className="fixed top-0 left-5 p-1 z-40  text-xl font-bold w-full text-white" style={{ mixBlendMode: "difference" }}>
+      <div className="fixed top-0 left-5 p-1 z-40 text-xl font-bold w-full text-white" style={{ mixBlendMode: "difference" }}>
         STUDIO
       <div className="fixed right-5 p-1 top-0 ">
         <div className="text-[14px] gap-8 flex" style={{ mixBlendMode: "difference" }}>
