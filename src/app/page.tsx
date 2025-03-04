@@ -14,11 +14,13 @@ export default function HomePage() {
 
 
   return (
+    <>
+          
+
     <main className="flex min-h-screen flex-col bg-black text-white">
       {/* Homepage Content */}
         {/* Header */}
-       < Header/>
-
+        < Header/>
         {/* Main Content */}
         <div ref={contentRef} className="relative h-screen">
           <div className="absolute bottom-0 left-0 p-8 w-full grid grid-cols-4 gap-8 text-sm">
@@ -45,5 +47,9 @@ export default function HomePage() {
           </div>
         </div>
     </main>
+    <div className=" flex min-h-screen bg-white">
+
+    </div>
+    </>
   );
 }

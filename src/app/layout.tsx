@@ -19,7 +19,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${GeistSans.variable ,azeretMono.className}`}>
-      <body>
+      <body className="bg-black" >
           {loading && <Preloader onComplete={() => setLoading(false)} />}
             {children}
       </body>
