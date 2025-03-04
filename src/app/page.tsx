@@ -50,6 +50,7 @@ export default function HomePage() {
     <div className=" flex min-h-screen bg-white">
 
     </div>
+  
     </>
   );
 }

@@ -1,14 +1,51 @@
 "use client"
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function Header() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [userInteracted, setUserInteracted] = useState(false);
+
+  useEffect(() => {
+    const handleInteraction = () => {
+      setUserInteracted(true);
+    };
+
+    // Add more interaction events
+    const events = ['mousedown', 'keydown', 'touchstart', 'scroll'];
+    events.forEach(event => {
+      document.addEventListener(event, handleInteraction, { once: true });
+    });
+
+    // Try to initialize audio context
+    const initAudio = async () => {
+      try {
+        const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+        const audioContext = new AudioContext();
+        await audioContext.resume();
+        setUserInteracted(true);
+      } catch (error) {
+        console.log("Audio context initialization failed");
+      }
+    };
+    
+    initAudio();
+
+    return () => {
+      events.forEach(event => {
+        document.removeEventListener(event, handleInteraction);
+      });
+    };
+  }, []);
 
   const playTickSound = () => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(error => console.error("Audio playback failed:", error));
+      audioRef.current.play().catch(error => {
+        if (error.name !== 'NotAllowedError') {
+          console.error("Audio playback failed:", error);
+        }
+      });
     }
   };
 
