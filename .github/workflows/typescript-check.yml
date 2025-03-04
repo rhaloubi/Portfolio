@@ -1,0 +1,40 @@
+name: TypeScript Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    # Add outputs to the job
+    outputs:
+      type_check_passed: ${{ steps.type-check.outputs.passed }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run TypeScript type checking
+        id: type-check
+        run: |
+          if npx tsc --noEmit; then
+            echo "passed=true" >> $GITHUB_OUTPUT
+          else
+            echo "passed=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Check for TypeScript errors in test files
+        run: npx tsc --noEmit --project tsconfig.json
