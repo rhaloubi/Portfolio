@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'AtomicMarker';
+  src: url('/fonts/AtomicMarker.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TTTrailers';
+  src: url('/fonts/TTTrailers-ExtraBold.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tt_trailers';
+  src: url('/fonts/TTTrailers-ExtraBold.woff2') format('woff2'),
+       url('/fonts/TTTrailers-ExtraBold.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 @layer base {
   html {
     font-family: 'Azeret Mono', monospace;

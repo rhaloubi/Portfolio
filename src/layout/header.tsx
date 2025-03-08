@@ -55,7 +55,7 @@ export default function Header() {
       <div className="flex justify-between items-center px-5" >
         {/* Left side - Contact */}
         <div className="text-[14px]" >
-        <GradientButton variant="variant" className="size-11 text-[15px] text-white">Contact</GradientButton>
+        <GradientButton variant="variant" className="size-10 text-[15px]  text-white">Contact</GradientButton>
         </div>
 
         {/* Center - Logo */}

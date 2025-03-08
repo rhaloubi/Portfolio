@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Header from "../layout/header";
+import Hero from "../components/home/hero";
 
 export default function HomePage() {
   const [showHomepage, setShowHomepage] = useState(false);
@@ -15,12 +16,12 @@ export default function HomePage() {
 
   return (
     <>
-          
-
+       {/* Header */}
+          < Header/>
     <main className="flex min-h-screen flex-col bg-black text-white">
       {/* Homepage Content */}
-        {/* Header */}
-        < Header/>
+      < Hero/>
+       
         {/* Main Content */}
         <div ref={contentRef} className="relative h-screen">
       
