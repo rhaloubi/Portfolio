@@ -50,25 +50,34 @@ export default function Header() {
   };
 
   return (
-      <div className="fixed top-0 left-5 p-1 z-40 text-xl font-bold w-full text-white" style={{ mixBlendMode: "difference" }}>
-        STUDIO
-      <div className="fixed right-5 p-1 top-0 ">
-        <div className="text-[14px] gap-8 flex" style={{ mixBlendMode: "difference" }}>
-            <Link href="/works" className="menu-item relative group " onMouseEnter={playTickSound}>
-            Works
-            <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link href="/about" className="menu-item relative group " onMouseEnter={playTickSound}>
-            About
-            <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link href="/contact" className="menu-item relative group " onMouseEnter={playTickSound}>
+    <div className="fixed top-0 w-full p-1 md:p-4 z-40" style={{ mixBlendMode: "difference" }}>
+      <div className="flex justify-between items-center px-5" >
+        {/* Left side - Contact */}
+        <div className="text-[14px]" style={{ mixBlendMode: "difference" }}>
+          <Link href="/contact" className="menu-item relative group text-white" onMouseEnter={playTickSound}>
             Contact
             <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+          </Link>
+        </div>
+
+        {/* Center - Logo */}
+        <div className="text-xl font-bold text-white absolute left-1/2 transform -translate-x-1/2" style={{ mixBlendMode: "difference" }}>
+          Logo
+        </div>
+
+        {/* Right side - Works & About */}
+        <div className="flex gap-8 text-[14px]" style={{ mixBlendMode: "difference" }}>
+          <Link href="/works" className="menu-item relative group text-white" onMouseEnter={playTickSound}>
+            Works
+            <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link href="/about" className="menu-item relative group text-white" onMouseEnter={playTickSound}>
+            About
+            <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
+          </Link>
         </div>
       </div>
       <audio ref={audioRef} src="/click.mp3" preload="auto" />
     </div>
-  )
+  );
 }
