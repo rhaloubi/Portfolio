@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
+import { GradientButton } from "../components/ui/gradient-button"
 
 export default function Header() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -53,20 +54,17 @@ export default function Header() {
     <div className="fixed top-0 w-full p-1 md:p-4 z-40" style={{ mixBlendMode: "difference" }}>
       <div className="flex justify-between items-center px-5" >
         {/* Left side - Contact */}
-        <div className="text-[14px]" style={{ mixBlendMode: "difference" }}>
-          <Link href="/contact" className="menu-item relative group text-white" onMouseEnter={playTickSound}>
-            Contact
-            <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
-          </Link>
+        <div className="text-[14px]" >
+        <GradientButton variant="variant" className="size-11 text-[15px] text-white">Contact</GradientButton>
         </div>
 
         {/* Center - Logo */}
-        <div className="text-xl font-bold text-white absolute left-1/2 transform -translate-x-1/2" style={{ mixBlendMode: "difference" }}>
+        <div className="text-xl font-bold text-white absolute left-1/2 transform -translate-x-1/2" >
           Logo
         </div>
 
         {/* Right side - Works & About */}
-        <div className="flex gap-8 text-[14px]" style={{ mixBlendMode: "difference" }}>
+        <div className="flex gap-8 text-[14px]">
           <Link href="/works" className="menu-item relative group text-white" onMouseEnter={playTickSound}>
             Works
             <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
