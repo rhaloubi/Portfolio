@@ -1,8 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
-import { GradientButton } from "../components/ui/gradient-button"
-
+import { StarBorder } from "../components/ui/star-border"
 export default function Header() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [userInteracted, setUserInteracted] = useState(false);
@@ -55,7 +54,7 @@ export default function Header() {
       <div className="flex justify-between items-center px-5" >
         {/* Left side - Contact */}
         <div className="text-[14px]" >
-        <GradientButton variant="variant" className="size-10 text-[15px]  text-white">Contact</GradientButton>
+        <StarBorder className="bg-black " >Contact</StarBorder>
         </div>
 
         {/* Center - Logo */}
