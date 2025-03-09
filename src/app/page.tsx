@@ -18,7 +18,7 @@ export default function HomePage() {
     <>
        {/* Header */}
           < Header/>
-    <main className="flex min-h-screen flex-col bg-black text-white">
+    <main className="flex min-h-screen flex-col bg-[#0B0B0B] text-white">
       {/* Homepage Content */}
       < Hero/>
        

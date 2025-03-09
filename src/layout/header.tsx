@@ -59,7 +59,7 @@ export default function Header() {
         </div>
 
         {/* Center - Logo */}
-        <div className="text-xl font-bold text-white absolute left-1/2 transform -translate-x-1/2" >
+        <div className="text-[33px] font-[TTTrailers]  font-bold text-white absolute left-1/2 transform -translate-x-1/2" >
           Logo
         </div>
 
