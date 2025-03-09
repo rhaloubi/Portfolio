@@ -38,10 +38,10 @@ export default function Hero() {
             top: '50%',
             duration: 0
           });
-        } else if (self.progress === 0) {
+        } else if (self.progress > 1 && self.progress === 0) {
           gsap.to(containerRef.current, {
             position: 'absolute',
-            top: '35%',
+            top: '50%',
             duration: 0
           });
         }
@@ -49,7 +49,7 @@ export default function Hero() {
       onLeave: () => {
         gsap.to(containerRef.current, {
           position: 'absolute',
-          top: '60%',
+          top: '70%',
           duration: 0
         });
       }
@@ -64,7 +64,7 @@ export default function Hero() {
   return (
     <div ref={sectionRef} className="relative min-h-[180vh] w-full overflow-x-hidden bg-[#0B0B0B] text-white">
       {/* Background moving text */}
-      <div ref={containerRef} className="fixed top-[35%] w-screen whitespace-nowrap z-0 -translate-y-1/2 rotate-[+2deg]">
+      <div ref={containerRef} className="fixed top-[45%] w-screen whitespace-nowrap z-0 -translate-y-1/2 rotate-[+2deg]">
         <h2 ref={textRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:3px_#FF0000] opacity-20">
           PORTFOLIO PORTFOLIO * PORTFOLIO PORTFOLIO
         </h2>
