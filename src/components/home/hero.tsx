@@ -32,7 +32,7 @@ export default function Hero() {
       end: 'bottom bottom',
       scrub: 1,
       onUpdate: (self) => {
-        if (self.progress < 1 && self.progress > 0) {
+        if ( self.progress > 0) {
           gsap.to(containerRef.current, {
             position: 'fixed',
             top: '50%',
@@ -62,24 +62,24 @@ export default function Hero() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative min-h-[150vh] bg-[#0B0B0B] text-white">
+    <div ref={sectionRef} className="relative min-h-[180vh] w-full overflow-x-hidden bg-[#0B0B0B] text-white">
       {/* Background moving text */}
-      <div ref={containerRef} className="absolute top-[35%] w-full whitespace-nowrap z-0 -translate-y-1/2">
-        <h2 ref={textRef} className="font-[TTTrailers] text-[400px] tracking-tighter text-transparent [-webkit-text-stroke:3px_#FF0000] opacity-20">
-          PORTFOLIO PORTFOLIO PORTFOLIO PORTFOLIO
+      <div ref={containerRef} className="fixed top-[35%] w-screen whitespace-nowrap z-0 -translate-y-1/2 rotate-[+2deg]">
+        <h2 ref={textRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:3px_#FF0000] opacity-20">
+          PORTFOLIO PORTFOLIO * PORTFOLIO PORTFOLIO
         </h2>
       </div>
 
       {/* Top green text */}
-      <div className="absolute top-32 left-1/2 -translate-x-1/2 text-center w-full z-10">
+      <div className="absolute top-[100px] left-2/3 -translate-x-1/2 text-center w-[340px] z-20">
         <p className="font-[AtomicMarker] text-[39px] text-[#c4d600] tracking-wider">
           CREATIVE DEVELOPER & DESIGNER
         </p>
       </div>
 
       {/* Main centered text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full z-20">
-        <h1 className="font-[TTTrailers] text-[264px] leading-[198px] text-white tracking-tighter mb-8">
+      <div className="absolute top-[620px] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full z-10">
+        <h1 className="font-[TTTrailers] text-[264px] leading-[198px] text-white mb-8" style={{ letterSpacing: '-0.02em' }}>
           CREATIVE
           <br />
           VISION
