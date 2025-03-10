@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Header from "../layout/header";
 import Hero from "../components/home/hero";
 import About from "../components/home/about";
+import Widget from '../components/spotify/widgets';
 
 
 export default function HomePage() {
@@ -24,6 +25,8 @@ export default function HomePage() {
       {/* Homepage Content */}
       < Hero/> 
       < About/>
+      <Widget/>
+
        
         {/* Main Content */}
         <div ref={contentRef} className="relative h-screen">
