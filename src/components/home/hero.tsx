@@ -65,14 +65,14 @@ export default function Hero() {
     <div ref={sectionRef} className="relative min-h-[180vh] w-full overflow-x-hidden bg-[#0B0B0B] text-white">
       {/* Background moving text */}
       <div ref={containerRef} className="fixed top-[45%] w-screen whitespace-nowrap z-0 -translate-y-1/2 rotate-[+2deg]">
-        <h2 ref={textRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:3px_#FF0000] opacity-20">
+        <h2 ref={textRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:4px_#FF70AB] opacity-30">
           PORTFOLIO PORTFOLIO * PORTFOLIO PORTFOLIO
         </h2>
       </div>
 
       {/* Top green text */}
       <div className="absolute top-[100px] left-2/3 -translate-x-1/2 text-center w-[340px] z-20">
-        <p className="font-[AtomicMarker] text-[39px] text-[#c4d600] tracking-wider">
+        <p className="font-[AtomicMarker] text-[39px] text-[#399918] tracking-wider">
           CREATIVE DEVELOPER & DESIGNER
         </p>
       </div>

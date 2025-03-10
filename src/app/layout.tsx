@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable ,azeretMono.className}`}>
       <ReactLenis root>
-      <body className="bg-black" >
+      <body className="bg-current" >
           {loading && <Preloader onComplete={() => setLoading(false)} />}
             {children}
       </body>

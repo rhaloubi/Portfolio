@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #5d4343;
+  margin-top: 10rem; /* pr-3 equivalent */
+  margin-bottom: 10rem; /* pr-3 equivalent */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cf5487;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(250, 255, 197, 0.8);
+}
+
 
 html.lenis,
 html.lenis body {

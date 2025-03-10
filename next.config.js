@@ -12,6 +12,9 @@ const config = {
     typescript: {
         ignoreBuildErrors: true,
     },
+    distDir: '.next-local',
+    poweredByHeader: false,
+    reactStrictMode: true,
 };
 
 export default config;

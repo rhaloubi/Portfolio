@@ -20,16 +20,16 @@ export default function HomePage() {
           < Header/>
     <main className="flex min-h-screen flex-col bg-[#0B0B0B] text-white">
       {/* Homepage Content */}
-      < Hero/>
+      < Hero/> 
        
         {/* Main Content */}
         <div ref={contentRef} className="relative h-screen">
       
         </div>
     </main>
-    <div className=" flex min-h-screen bg-white">
+    <main className=" flex min-h-screen bg-white">
 
-    </div>
+    </main>
   
     </>
   );

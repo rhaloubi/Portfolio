@@ -56,7 +56,7 @@ export default function Header() {
         {/* Left side - Contact */}
         <div className="text-[14px]">
           <Button 
-            className="relative inline-flex text-[20px] border-t border-l  border-yellow-700 rounded-full h-11 items-center px-6 py-2  bg-[length:200%_100%] text-white  transition-all duration-500 hover:bg-[center_right_10px] hover:shadow-lg hover:shadow-red-500/50"
+            className="relative inline-flex text-[20px] border-t border-l  border-[#FF70AB] rounded-full h-11 items-center px-6 py-2  bg-[length:200%_100%] text-white  transition-all duration-500 hover:bg-[center_right_10px] hover:shadow-lg hover:shadow-red-500/50"
             style={{ letterSpacing: '+0.02em' }}
           >
             Contact Me
