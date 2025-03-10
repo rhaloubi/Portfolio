@@ -65,7 +65,7 @@ export default function Hero() {
     <div ref={sectionRef} className="relative min-h-[180vh] w-full overflow-x-hidden bg-[#0B0B0B] text-white">
       {/* Background moving text */}
       <div ref={containerRef} className="fixed top-[45%] w-screen whitespace-nowrap z-0 -translate-y-1/2 rotate-[+2deg]">
-        <h2 ref={textRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:4px_#FF70AB] opacity-30">
+        <h2 ref={textRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:4px_#FF70AB] opacity-30 select-none pointer-events-none">
           PORTFOLIO PORTFOLIO * PORTFOLIO PORTFOLIO
         </h2>
       </div>
