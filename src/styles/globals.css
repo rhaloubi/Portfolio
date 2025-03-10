@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* selected */
+
+::selection {
+  color: black;
+  background: #cf5487;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 3px;
