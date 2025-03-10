@@ -17,13 +17,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
       - name: Install dependencies
         run: npm install
-
-      - name: Build project
-        env:
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
-        run: npm run build
 
       - name: Deploy to Vercel
         env:
@@ -31,7 +32,6 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         run: |
-          npm install -g vercel
+          npm install --global vercel@latest
           vercel pull --yes --environment=production --token=$VERCEL_TOKEN
-          vercel build --prod --token=$VERCEL_TOKEN
-          vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+          vercel deploy --prod --token=$VERCEL_TOKEN
