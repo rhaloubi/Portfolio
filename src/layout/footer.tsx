@@ -30,6 +30,7 @@ export default function Footer() {
     ScrollTrigger.create({
         
         end: "590% center",
+        markers: true ,
         onEnterBack: () => {
           if (isOpenRef.current === 1) {
             handleCloseClick();
