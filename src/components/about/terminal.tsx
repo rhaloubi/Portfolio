@@ -19,7 +19,8 @@ export default function Terminal({ onClose }: TerminalProps) {
     }
   }, [commands]);
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  // Update the type definition in handleKeyDown
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
       setCommands([...commands, input]);
       setInput('');
