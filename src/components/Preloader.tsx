@@ -57,7 +57,7 @@ const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
       >
         00 
       </div>
-      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[calc(100%-40px)] h-1 bg-gray-800">
+      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-[calc(100%-40px)] h-3 bg-gray-800">
         <div 
           ref={progressBarRef}
           className="h-full w-0 bg-white"
