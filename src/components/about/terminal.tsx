@@ -55,7 +55,7 @@ export default function Terminal({ onClose }: TerminalProps) {
           redahaloubi — qemu-system-x86_64 — -zsh — 114×31
         </div>
       </div>
-      <div className=" font-mono text-green-500 h-[calc(100%-40px)] flex flex-col">
+      <div className=" font-mono  h-[calc(100%-40px)] flex flex-col">
         <div 
           ref={scrollRef}
           className='flex-1 px-2 pt-2 flex flex-col space-y-2 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent'
@@ -64,11 +64,11 @@ export default function Terminal({ onClose }: TerminalProps) {
             <h2>hi </h2>
         </div>
           {commands.map((cmd, index) => (
-            <div key={index} className="flex whitespace-nowrap">
+            <div key={index} className="flex flex-wrap">
               <span className="text-purple-500">➜</span>
               <span className="text-blue-500 ml-2">~/Respond</span>
               <span className="text-white ml-2">$</span>
-              <span className="text-green-500 ml-2">{cmd}</span>
+              <p className="text-green-500 ml-2 break-all">{cmd}</p>
             </div>
           ))}
         </div>
