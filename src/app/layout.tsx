@@ -5,6 +5,8 @@ import { GeistSans } from "geist/font/sans";
 import { useState, useEffect } from "react";
 import Preloader from "~/components/Preloader";
 import { ReactLenis } from "../lib/lenis";
+import Header from "../layout/header";
+import Footer from "../layout/footer";
 
 import { Azeret_Mono } from "next/font/google";
 
@@ -40,7 +42,11 @@ export default function RootLayout({
       <ReactLenis root>
         <body className={`bg-current ${loading ? "overflow-hidden h-screen pointer-events-none" : ""}`}>
           <div className={`relative`}>
+          <Header/>
             {children}
+            <div className="relative z-0">
+              <Footer/>
+            </div>
           </div>
           {loading && (
             <div className="fixed inset-0 z-50">

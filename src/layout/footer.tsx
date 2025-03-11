@@ -28,9 +28,8 @@ export default function Footer() {
 
     // Black section scroll detection
     ScrollTrigger.create({
-        
-        end: "590% center",
-        markers: true ,
+        trigger:"footer",
+        end: "70% center",
         onEnterBack: () => {
           if (isOpenRef.current === 1) {
             handleCloseClick();

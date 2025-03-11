@@ -16,7 +16,9 @@ export default function About() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black p-10 flex items-center justify-center">
+    <main className="relative z-10 flex flex-col bg-[#0B0B0B] text-white">
+
+    <div className="min-h-screen   p-10 flex items-center justify-center">
       <div className="w-full max-w-5xl">
         {/* Main Mac Window */}
         <div 
@@ -69,5 +71,6 @@ export default function About() {
         </div>
       </div>
     </div>
+    </main>
   );
 }
