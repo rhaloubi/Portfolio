@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
+h2 {
+  font-family: 'Bowlby One SC', sans-serif;
+  font-weight: 400;
+  letter-spacing: -2px; /* Ajuste selon besoin */
+  text-transform: uppercase;
+}
 
 /* selected */
 

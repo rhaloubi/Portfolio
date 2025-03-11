@@ -26,8 +26,7 @@ export default function HomePage() {
         <div ref={contentRef} className="relative h-screen">
         </div>
       </main>
-      <main className="relative z-10 flex min-h-screen bg-white">
-      </main>
+     
       <div className="relative z-0">
         <Footer/>
       </div>
