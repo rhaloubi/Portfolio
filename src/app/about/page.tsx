@@ -1,7 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { IoTerminal } from "react-icons/io5";
+import { SiGnometerminal } from "react-icons/si";
+import { FaApple } from "react-icons/fa";
 import Terminal from "../../components/about/terminal";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../../components/ui/dropdown-menu"
+import Footer from "../../layout/footer";
+
+
 
 export default function About() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -16,9 +27,10 @@ export default function About() {
   }, []);
 
   return (
+    <div className="relative">
     <main className="relative z-10 flex flex-col bg-[#0B0B0B] text-white">
 
-    <div className="min-h-screen   p-10 flex items-center justify-center">
+    <div className="min-h-screen font-[SFCompactRounded]  p-10 flex items-center justify-center">
       <div className="w-full max-w-5xl">
         {/* Main Mac Window */}
         <div 
@@ -31,16 +43,44 @@ export default function About() {
           }}
         >
           {/* Window Header */}
-          <div className="bg-[#2d2d2d] px-4 py-2 flex items-center">
-            <div className="flex space-x-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          <div className="bg-[#2d2d2d] px-2 py-1 flex items-center">
+            <div className="flex items-center space-x-3">
+              <FaApple className="mr-3" />
+              <DropdownMenu >
+                <DropdownMenuTrigger className="text-[13px]">File</DropdownMenuTrigger>
+                <DropdownMenuContent className="text-white  p-2 border-0 font-[SFCompactRounded]  bg-[#0B0B0B]">
+                  <DropdownMenuItem className="text-[12px] py-[-8px]  hover:bg-[#cf5487]">Profile</DropdownMenuItem>
+                  <DropdownMenuSeparator className="border-b border-gray-600 mx-2" />
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Billing</DropdownMenuItem>
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Team</DropdownMenuItem>
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Subscription</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <DropdownMenu >
+                <DropdownMenuTrigger className="text-[13px]">View</DropdownMenuTrigger>
+                <DropdownMenuContent className="text-white  p-2 border-0 font-[SFCompactRounded]  bg-[#0B0B0B]">
+                  <DropdownMenuItem className="text-[12px] py-[-8px]  hover:bg-[#cf5487]">Profile</DropdownMenuItem>
+                  <DropdownMenuSeparator className="border-b border-gray-600 mx-2" />
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Billing</DropdownMenuItem>
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Team</DropdownMenuItem>
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Subscription</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <DropdownMenu >
+                <DropdownMenuTrigger className="text-[13px]">Help</DropdownMenuTrigger>
+                <DropdownMenuContent className="text-white  p-2 border-0 font-[SFCompactRounded]  bg-[#0B0B0B]">
+                  <DropdownMenuItem className="text-[12px] py-[-8px]  hover:bg-[#cf5487]">Profile</DropdownMenuItem>
+                  <DropdownMenuSeparator className="border-b border-gray-600 mx-2" />
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Billing</DropdownMenuItem>
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Team</DropdownMenuItem>
+                  <DropdownMenuItem className="text-[12px] py-[-8px] hover:bg-[#cf5487]">Subscription</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
-            <div className="flex-1 text-center text-sm text-gray-400">
+            <div className="flex-1 text-center  text-sm text-gray-400">
               MacBook Pro
             </div>
-            <div className="text-center text-white text-sm">
+            <div className="text-center  font-light text-white text-sm">
               {currentTime.toLocaleString('en-US', {
                 weekday: 'short',
                 month: 'short',
@@ -59,7 +99,7 @@ export default function About() {
               onClick={() => setIsTerminalOpen(true)}
               className="w-16 flex flex-col items-center gap-2 cursor-pointer hover:opacity-80"
             >
-              <IoTerminal className="text-4xl outline-4 outline-gray-600 text-white" />
+              <SiGnometerminal className="text-4xl outline-4 outline-gray-600 " />
               <span className="text-xs text-white">Terminal</span>
             </div>
 
@@ -71,6 +111,11 @@ export default function About() {
         </div>
       </div>
     </div>
+  
     </main>
+      <div className="relative z-0">
+      <Footer/>
+      </div>
+    </div>
   );
 }

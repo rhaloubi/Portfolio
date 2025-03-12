@@ -1,12 +1,13 @@
 "use client";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import PageTransition from "~/components/PageTransition";
 
 import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
-import { useState, useEffect } from "react";
 import Preloader from "~/components/Preloader";
 import { ReactLenis } from "../lib/lenis";
 import Header from "../layout/header";
-import Footer from "../layout/footer";
 
 import { Azeret_Mono } from "next/font/google";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (loading) {
@@ -42,11 +44,12 @@ export default function RootLayout({
       <ReactLenis root>
         <body className={`bg-current ${loading ? "overflow-hidden h-screen pointer-events-none" : ""}`}>
           <div className={`relative`}>
-          <Header/>
-            {children}
-            <div className="relative z-0">
-              <Footer/>
+            <Header/>
+            <div key={pathname} className="relative">
+              {children}
+              <PageTransition />
             </div>
+           
           </div>
           {loading && (
             <div className="fixed inset-0 z-50">

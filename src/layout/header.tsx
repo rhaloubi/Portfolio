@@ -64,9 +64,9 @@ export default function Header() {
         </div>
 
         {/* Center - Logo */}
-        <div className="text-[33px]   font-bold text-white absolute left-1/2 transform -translate-x-1/2" >
+        <Link href={"/"} className="text-[33px]   font-bold text-white absolute left-1/2 transform -translate-x-1/2" >
           Logo
-        </div>
+        </Link>
 
         {/* Right side - Works & About */}
         <div className="flex gap-8 text-[19px] font-thin">

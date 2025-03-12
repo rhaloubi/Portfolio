@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import Hero from "../components/home/hero";
 import About from "../components/home/about";
 import Widget from '../components/spotify/widgets';
+import Footer from "../layout/footer";
 
 
 export default function HomePage() {
@@ -25,7 +26,9 @@ export default function HomePage() {
         </div>
       </main>
      
-    
+      <div className="relative z-0">
+              <Footer/>
+            </div>
     </div>
   );
 }

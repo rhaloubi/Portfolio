@@ -69,6 +69,14 @@ html.lenis body {
 }
 
 @font-face {
+  font-family: 'SFCompactRounded';
+  src: url('/fonts/SFCompactRounded-Regular.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'TTTrailers';
   src: url('/fonts/TTTrailers-ExtraBold.woff2') format('woff2');
   font-weight: 400;
