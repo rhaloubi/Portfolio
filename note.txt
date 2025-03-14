@@ -1,7 +1,7 @@
 ## Font:
 
-Atomicmarker - 400 , #c4d600 , size: 39px
-Tt trailers  - 400 , #fff , size: 264px ,Line Height: 198px
+Atomicmarker - 400 , #399918 , size: 39px
+Tt trailers  - 400 , #FF70AB , size: 264px ,Line Height: 198px
 
 
 

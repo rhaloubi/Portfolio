@@ -71,4 +71,8 @@ As I continue to grow both professionally and personally, I seek opportunities w
       throw error;
     }
   }
+
+  getSession() {
+    return this.chat.getSession();
+  }
 }

@@ -4,6 +4,9 @@ import { SiGnometerminal } from "react-icons/si";
 import { FaApple } from "react-icons/fa";
 import Terminal from "../../components/about/terminal";
 import Main from "../../components/about/main";
+import { BatteryIndicator } from "../../components/about/BatteryIndicator";
+import { Toaster } from 'react-hot-toast';
+
 
 import {
   DropdownMenu,
@@ -19,6 +22,7 @@ import Footer from "../../layout/footer";
 export default function About() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [messageCount, setMessageCount] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,6 +34,7 @@ export default function About() {
 
   return (
     <div className="relative">
+      <Toaster position="top-center" />
     <main className="relative z-30 h-[200vh] w-full overflow-x-hidden flex flex-col bg-[#0B0B0B]  text-white">
 
     <div className="min-h-screen font-[SFCompactRounded]  p-10 flex items-center justify-center">
@@ -82,6 +87,7 @@ export default function About() {
             <div className="flex-1 text-center  text-sm text-gray-400">
               MacBook Pro
             </div>
+            <BatteryIndicator messageCount={messageCount} />
             <div className="text-center  font-light text-white text-sm">
               {currentTime.toLocaleString('en-US', {
                 weekday: 'short',
@@ -92,6 +98,7 @@ export default function About() {
                 hour12: false
               })}
             </div>
+              
           </div>
 
           {/* Desktop Area */}
@@ -107,7 +114,10 @@ export default function About() {
 
             {/* Terminal Window */}
             {isTerminalOpen && (
-              <Terminal onClose={() => setIsTerminalOpen(false)} />
+              <Terminal 
+                onClose={() => setIsTerminalOpen(false)} 
+                onMessageCountChange={setMessageCount}
+              />
             )}
           </div>
         </div>
