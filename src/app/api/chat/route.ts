@@ -19,7 +19,8 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error('Route Error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to process message' },
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      { error: error instanceof Error ? error.message : 'Failed to process message' },
       { status: 500 }
     );
   }
