@@ -76,7 +76,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#fef9e3] h-[190vh] overflow-hidden">
+    <footer className="relative bg-[#fef9e3] h-[190vh] overflow-x-hidden">
       {/* White section */}
       <div
         ref={whiteRef}

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { SiGnometerminal } from "react-icons/si";
 import { FaApple } from "react-icons/fa";
 import Terminal from "../../components/about/terminal";
+import Main from "../../components/about/main";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,7 +30,7 @@ export default function About() {
 
   return (
     <div className="relative">
-    <main className="relative z-10 flex flex-col bg-[#0B0B0B] text-white">
+    <main className="relative z-30 h-[200vh] w-full overflow-x-hidden flex flex-col bg-[#0B0B0B]  text-white">
 
     <div className="min-h-screen font-[SFCompactRounded]  p-10 flex items-center justify-center">
       <div className="w-full max-w-5xl">
@@ -110,12 +112,18 @@ export default function About() {
           </div>
         </div>
       </div>
+      
     </div>
+
+    <Main/>
+    
+
+      
   
     </main>
       <div className="relative z-0">
       <Footer/>
-      </div>
+    </div>
     </div>
   );
 }

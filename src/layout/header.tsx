@@ -70,11 +70,11 @@ export default function Header() {
 
         {/* Right side - Works & About */}
         <div className="flex gap-8 text-[19px] font-thin">
-          <Link href="/works" className="menu-item relative group text-white" onMouseEnter={playTickSound}>
+          <Link href={"/works"} className="menu-item relative group text-white" onMouseEnter={playTickSound}>
             Works
             <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="/about" className="menu-item relative group text-white" onMouseEnter={playTickSound}>
+          <Link href={"/about"} className="menu-item relative group text-white" onMouseEnter={playTickSound}>
             About
             <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
           </Link>
