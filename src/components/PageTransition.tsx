@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const PageTransition = () => {
   const pathname = usePathname();
-  const comp = useRef(null);
+  const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const layers = comp.current?.children;
@@ -14,7 +14,7 @@ const PageTransition = () => {
     const tl = gsap.timeline();
 
     // Initial state
-    gsap.set(layers, { yPercent: 100 });
+    gsap.set(Array.from(layers), { yPercent: 100 });
 
     // Animate in
     tl.to(layers[0], { yPercent: 0, duration: 0.5, ease: "power4.inOut" })
