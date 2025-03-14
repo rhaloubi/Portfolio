@@ -87,12 +87,19 @@ export default function Terminal({ onClose, onMessageCountChange }: TerminalProp
       setCommands(prev => [...prev, { command: userInput, response: '...' }]);
 
       // Get AI response
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const aiResponse = await handleChat(userInput);
       
       // Update the last command with the AI response
       setCommands(prev => {
         const newCommands = [...prev];
-        newCommands[newCommands.length - 1].response = aiResponse;
+if (newCommands.length > 0) {
+  const lastCommand = newCommands[newCommands.length - 1];
+  if (lastCommand) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    lastCommand.response = aiResponse || 'No response received';
+  }
+}
         return newCommands;
       });
 

@@ -7,7 +7,7 @@ const CHAT_TOKEN_KEY = 'chat_token';
 export async function GET() {
   try {
     const cookieStore = cookies();
-    const token = cookieStore.get(CHAT_TOKEN_KEY)?.value;
+    const token = (await cookieStore).get(CHAT_TOKEN_KEY)?.value;
 
     if (!token) {
       return NextResponse.json({ session: { messageCount: 0 } });
