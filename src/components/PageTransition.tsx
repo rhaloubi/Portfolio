@@ -11,19 +11,22 @@ const PageTransition = () => {
     const layers = comp.current?.children;
     if (!layers) return;
 
+    const layersArray = Array.from(layers);
     const tl = gsap.timeline();
 
     // Initial state
-    gsap.set(Array.from(layers), { yPercent: 100 });
+    gsap.set(layersArray, { yPercent: 100 });
 
     // Animate in
-    tl.to(layers[0], { yPercent: 0, duration: 0.5, ease: "power4.inOut" })
-      .to(layers[1], { yPercent: 0, duration: 0.5, ease: "power4.inOut" }, "-=0.3")
-      .to(layers[2], { yPercent: 0, duration: 0.5, ease: "power4.inOut" }, "-=0.3")
-      // Animate out
-      .to(layers[2], { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "+=0.2")
-      .to(layers[1], { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "-=0.3")
-      .to(layers[0], { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "-=0.3");
+    if (layersArray[0] && layersArray[1] && layersArray[2]) {
+      tl.to(layersArray[0], { yPercent: 0, duration: 0.5, ease: "power4.inOut" })
+        .to(layersArray[1], { yPercent: 0, duration: 0.5, ease: "power4.inOut" }, "-=0.3")
+        .to(layersArray[2], { yPercent: 0, duration: 0.5, ease: "power4.inOut" }, "-=0.3")
+        // Animate out
+        .to(layersArray[2], { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "+=0.2")
+        .to(layersArray[1], { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "-=0.3")
+        .to(layersArray[0], { yPercent: -100, duration: 0.5, ease: "power4.inOut" }, "-=0.3");
+    }
 
     return () => {
       tl.kill();
