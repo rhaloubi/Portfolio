@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Button } from "../../components/ui/button";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +14,9 @@ export default function About() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: titleRef.current,
-        start: "top center",
+        start: "top bottom",
         end: "center center",
+       // markers: true, // Enable markers to visualize triggers
         scrub: 1,
 
       }
@@ -30,7 +33,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="relative min-h-auto w-full max-w-[100vw] pt-10 px-8">
+    <div className="relative overflow-hidden min-h-auto w-full max-w-[100vw] pt-10  px-8">
       <div className="  mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Left Column - Fun Stuff */}
@@ -60,6 +63,13 @@ export default function About() {
             </div>
           </div>
           {/* Widgets */}
+        </div>
+        <div className='flex items-center justify-center w-[50vw] mb-3 '>
+        <Button 
+            className="relative inline-flex text-[24px] font-[TTTrailers] border-t border-l  border-[#FF70AB] rounded-full h-13 items-center px-10 py-2  bg-[length:200%_100%] text-white  transition-all duration-500 hover:bg-[center_right_10px] hover:shadow-lg hover:shadow-red-500/50"
+          >
+            About mE
+          </Button>
         </div>
       </div>
     </div>

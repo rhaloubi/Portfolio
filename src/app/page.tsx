@@ -17,7 +17,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <main className="relative z-10 flex flex-col bg-[#0B0B0B] text-white">
         <Hero/> 
         <About/>
