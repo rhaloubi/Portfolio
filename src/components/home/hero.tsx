@@ -6,18 +6,33 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-  const textRef = useRef(null);
+  const backgroundTextRef = useRef(null);
+  const bottomTextRef = useRef(null);
   const containerRef = useRef(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    // Horizontal scroll animation
-    const tl = gsap.timeline({
+    // Background text animation
+    const backgroundTl = gsap.timeline({
       repeat: -1,
       defaults: { ease: "none" }
     });
 
-    tl.fromTo(textRef.current,
+    backgroundTl.fromTo(backgroundTextRef.current,
+      { x: '0%' },
+      { 
+        x: '-50%', 
+        duration: 15,
+      }
+    );
+
+    // Bottom text animation
+    const bottomTl = gsap.timeline({
+      repeat: -1,
+      defaults: { ease: "none" }
+    });
+
+    bottomTl.fromTo(bottomTextRef.current,
       { x: '0%' },
       { 
         x: '-50%', 
@@ -57,7 +72,8 @@ export default function Hero() {
     });
 
     return () => {
-      tl.kill();
+      backgroundTl.kill();
+      bottomTl.kill();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
@@ -66,8 +82,8 @@ export default function Hero() {
     <div ref={sectionRef} className="relative min-h-[170vh] w-full overflow-hidden  bg-[#0B0B0B] text-white">
       {/* Background moving text */}
       <div ref={containerRef} className="fixed top-[45%] w-screen whitespace-nowrap z-0 -translate-y-1/2 rotate-[+2deg]">
-        <h2 ref={textRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:4px_#FF70AB] opacity-30 select-none pointer-events-none">
-          PORTFOLIO PORTFOLIO * PORTFOLIO PORTFOLIO
+        <h2 ref={backgroundTextRef} className="font-[TTTrailers] text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:4px_#FF70AB] opacity-30 select-none pointer-events-none">
+        Haloubi Reda * Haloubi Reda * Haloubi Reda * Haloubi Reda
         </h2>
       </div>
 
@@ -96,10 +112,10 @@ export default function Hero() {
 
         </p>
       </div>
-      <div className='absolute bg-[#fef9e3] mt-20 text-[250px] bottom-0 whitespace-nowrap z-0 -translate-y-1/2 rotate-[-2deg] text-center leading-none w-full '>
-      <div className='border-y-2 font-[TTTrailers] border-black my-1 '>
-        <h3 ref={textRef} className='text-black select-none pointer-events-none' >
-          About section * About section *  
+      <div className='absolute bg-[#fef9e3] mt-20 text-[250px] bottom-0 whitespace-nowrap z-0 -translate-y-1/2 rotate-[-2deg] text-center leading-none w-full mb-[-50px] '>
+      <div className='border-y-2 font-[TTTrailers] border-black my-1  '>
+        <h3 ref={bottomTextRef} className='text-black select-none pointer-events-none' >
+          About section * About section *  About section *  About section 
           </h3>  
       </div>
       </div>
