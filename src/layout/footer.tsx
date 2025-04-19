@@ -128,7 +128,7 @@ export default function Footer() {
           <div className="flex justify-between">
             {/* Left Section - Reach Out */}
             <div className="space-y-4">
-              <h4 className="text-gray-400 text-4xl font-bold">REACH OUT</h4>
+              <h4 className="text-gray-400 text-4xl font-bold">REACH OUT </h4>
               <p>
               <Link 
                 href="mailto:redahaloubi8@gmail.com" 
