@@ -91,6 +91,14 @@ html.lenis body {
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: 'FormulaCondensed';
+  src: url('/fonts/FormulaCondensed-Bold.woff') format('woff'),
+       url('/fonts/FormulaCondensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 @layer base {
   html {
     font-family: 'Azeret Mono', monospace;

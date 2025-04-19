@@ -1,15 +1,26 @@
 "use client";
+
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useClickSound } from '../hooks/useClickSound';
+import { useRouter } from 'next/navigation';
+import { FaInstagram, FaGithub, FaLinkedin , FaArrowLeft} from 'react-icons/fa';
+import { FaArrowDown } from 'react-icons/fa';
+import { TextPlugin } from 'gsap/TextPlugin';
 
-gsap.registerPlugin(ScrollTrigger);
+
+// Add at the top with other imports
+gsap.registerPlugin(TextPlugin);
 
 export default function Footer() {
+  const router = useRouter();
   const whiteRef = useRef(null);
   const redRef = useRef(null);
   const isOpenRef = useRef(0); // Store isOpen as a ref for immediate updates
   const [isOpen, setIsOpen] = useState(0);
+  const { audioRef, playTickSound } = useClickSound();
 
   useEffect(() => {
     // White section animation
@@ -75,12 +86,24 @@ export default function Footer() {
     }
   };
 
+  // Add with other refs
+  const newsletterRef = useRef<HTMLInputElement>(null);
+  
+  // Add with other functions
+  const handleNewsletterFocus = () => {
+    gsap.to(newsletterRef.current, {
+      duration: 1,
+      text: "Enter your email",
+      ease: "none",
+    });
+  };
+
   return (
-    <footer className="relative font-[AtomicMarker] bg-[#fef9e3] h-[190vh] overflow-x-hidden">
+    <footer className="relative font-[FormulaCondensed] bg-[#fef9e3] h-[155vh] overflow-x-hidden">
       {/* White section */}
       <div
         ref={whiteRef}
-        className="absolute top-0 left-0 w-screen h-[120vh] bg-[#fef9e3] flex items-end justify-center z-20"
+        className="absolute top-0 left-0 w-screen h-[100vh] bg-[#fef9e3] flex items-end justify-center z-20"
       >
         <div className="w-screen text-center px-2">
           <h2
@@ -89,7 +112,7 @@ export default function Footer() {
               fontFamily: "'Bowlby One SC', sans-serif",
             }}
           >
-            THE LINE
+            REDA hl
           </h2>
         </div>
       </div>
@@ -99,56 +122,144 @@ export default function Footer() {
         ref={redRef}
         className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-end z-10"
       >
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-4 gap-8">
+        <div className="  px-8">
+          <div className="flex justify-between">
+            {/* Left Section - Reach Out */}
             <div className="space-y-4">
-              <h4 className="text-white text-xl font-bold">REACH OUT</h4>
-              <p className="text-white">info@thelineanimation.com</p>
-              <p className="text-white">+44 (0)20 30020224</p>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-white text-xl font-bold">FIND US</h4>
-              <p className="text-white">
-                The Line Animation Studio Ltd<br />
-                Studio 92<br />
-                De Beauvoir Block, 92-96<br />
-                De Beauvoir Road<br />
-                London, N1 4EN
+              <h4 className="text-gray-400 text-4xl font-bold">REACH OUT</h4>
+              <p>
+              <Link 
+                href="mailto:redahaloubi8@gmail.com" 
+                className="text-white text-2xl hover:text-gray-300 transition-colors"
+              >
+                redahaloubi8@gmail.com
+              </Link>
+              </p>
+             <p>
+              <Link 
+                href="tel:+212631354797" 
+                className="text-white text-2xl hover:text-gray-300 transition-colors"
+              >
+                +212 (0)63 1354797
+              </Link>
               </p>
             </div>
-            <div className="space-y-4">
-              <h4 className="text-white text-xl font-bold">SOCIAL</h4>
-              <ul className="text-white space-y-2">
-                <li>YouTube</li>
-                <li>Instagram</li>
-                <li>TikTok</li>
-                <li>Facebook</li>
-                <li>LinkedIn</li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-white text-xl font-bold">NAV</h4>
-              <ul className="text-white space-y-2">
-                <li>Home</li>
-                <li>Work</li>
-                <li>Entertainment</li>
-                <li>About</li>
-                <li>Feed</li>
-                <li>Podcast</li>
-                <li>Contact</li>
-                <li>Shop</li>
-              </ul>
+
+            {/* Right Section - Other Links */}
+            <div className="grid grid-cols-3 gap-20 mr-8">
+              <div className="space-y-4">
+                
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-gray-400 text-2xl font-bold ">SOCIAL</h4>
+                <ul className="text-white text-xl space-y-2">
+                  <Link href={"https://www.instagram.com/reda__hl"}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-2 hover:text-gray-300  transition-colors cursor-pointer">
+                    <FaInstagram size={20} /> Instagram
+                  </Link>
+                  <Link href={"https://github.com/rhaloubi"}
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                  className="flex items-center gap-2 hover:text-gray-300 transition-colors cursor-pointer">
+                    <FaGithub size={20} /> Github
+                  </Link>
+                  <Link href={"https://linkedin.com/in/reda-haloubi"}
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                  className="flex items-center gap-2 hover:text-gray-300 transition-colors cursor-pointer">
+                    <FaLinkedin size={20} /> LinkedIn
+                  </Link>
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-gray-400 text-2xl font-bold">NAV</h4>
+                <ul className="text-white text-xl space-y-2">
+                  <li>
+                    <Link 
+                      href="/"
+                      className="menu-item relative group cursor-pointer" 
+                      onMouseEnter={playTickSound}
+                      onClick={(e: React.MouseEvent) => {
+                        e.preventDefault();
+                        if (window.location.pathname === '/') {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                          router.push('/');
+                        }
+                      }}
+                    >
+                      Home
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/works"
+                      className="menu-item relative group cursor-pointer" 
+                      onMouseEnter={playTickSound}
+                      onClick={(e: React.MouseEvent) => {
+                        e.preventDefault();
+                        if (window.location.pathname === '/works') {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                          router.push('/works');
+                        }
+                      }}
+                    >
+                      Work
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/about"
+                      className="menu-item relative group cursor-pointer" 
+                      onMouseEnter={playTickSound}
+                      onClick={(e: React.MouseEvent) => {
+                        e.preventDefault();
+                        if (window.location.pathname === '/about') {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                          router.push('/about');
+                        }
+                      }}
+                    >
+                      About
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <h3
-            className="text-[80px] font-[TTTrailers] text-white mt-20 cursor-pointer hover:text-gray-300 transition-colors"
-            onClick={handleClick}
-          >
-            Newsletter
-          </h3>
+          <div className="flex justify-between items-center mt-[12vh]">
+          <form method='post' className="flex items-center mb-2 border-b-[1px] border-white gap-4">
+            <input
+              type="email"
+              className="text-[50px]  font-[TTTrailers] text-gray-300 bg-transparent outline-none cursor-pointer hover:text-gray-300 transition-colors w-[400px]  focus:border-white"
+              placeholder="Enter Your Email"
+            />
+            <button 
+              type="submit" 
+              className="text-white text-4xl  hover:text-gray-300 transition-colors cursor-pointer mb-2"
+            >
+              <FaArrowLeft className="h-[45px] w-[60px]" />
+            </button>
+          </form>
+
+            <FaArrowDown 
+              className="text-white text-4xl h-[75px] w-[70px] mb-4 hover:text-gray-300 transition-colors cursor-pointer" 
+              onClick={handleClick}
+            />
+          </div>
         </div>
       </div>
-      <div className="fixed top-0 left-0 w-full h-screen bg-green-800 flex flex-col justify-end"></div>
+      <div onClick={handleClick} className="fixed top-0 left-0 w-full h-screen bg-green-800 flex flex-col justify-end">
+        <h1 className=" text-center text-xl text-white"> i need ideas for this section 😭</h1>
+      </div>
+      <audio ref={audioRef} src="/click.mp3" preload="auto" />
     </footer>
   );
 }

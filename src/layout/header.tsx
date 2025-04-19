@@ -3,8 +3,10 @@ import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
 import { StarBorder } from "../components/ui/star-border"
 import { Button } from "../components/ui/button";
+import { useClickSound } from '../hooks/useClickSound';
+
 export default function Header() {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { audioRef, playTickSound } = useClickSound();
   const [userInteracted, setUserInteracted] = useState(false);
 
   useEffect(() => {
@@ -39,16 +41,7 @@ export default function Header() {
     };
   }, []);
 
-  const playTickSound = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(error => {
-        if (error.name !== 'NotAllowedError') {
-          console.error("Audio playback failed:", error);
-        }
-      });
-    }
-  };
+  // Remove the duplicate playTickSound function since we're using it from the hook
 
   return (
     <div className="fixed top-0 w-full p-1 md:p-4 z-40 font-[TTTrailers]" style={{ mixBlendMode: "difference" }}>
