@@ -12,7 +12,7 @@ import { TextPlugin } from 'gsap/TextPlugin';
 
 
 // Add at the top with other imports
-gsap.registerlugin(TextPlugin);
+gsap.registerPlugin(TextPlugin);
 
 export default function Footer() {
   const router = useRouter();
