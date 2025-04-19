@@ -40,7 +40,8 @@ export default function Footer() {
     // Black section scroll detection
     ScrollTrigger.create({
         trigger:"footer",
-        end: "70% center",
+         //markers: true,
+        end: "65% center",
         onEnterBack: () => {
           if (isOpenRef.current === 1) {
             handleCloseClick();
@@ -61,6 +62,7 @@ export default function Footer() {
       x: "5%",
       y: "-30vh",
       duration: 1,
+      // markers: true,
       ease: "power3.inOut",
     });
     isOpenRef.current = 1;
@@ -257,7 +259,7 @@ export default function Footer() {
         </div>
       </div>
       <div onClick={handleClick} className="fixed top-0 left-0 w-full h-screen bg-green-800 flex flex-col justify-end">
-        <h1 className=" text-center text-xl text-white"> i need ideas for this section 😭</h1>
+        <h1 className=" text-center text-xl text-white"> i need some ideas for this section 😭</h1>
       </div>
       <audio ref={audioRef} src="/click.mp3" preload="auto" />
     </footer>
