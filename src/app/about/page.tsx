@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { SiGnometerminal } from "react-icons/si";
+import { IoFolderOpenSharp } from "react-icons/io5";
 import { FaApple } from "react-icons/fa";
 import Terminal from "../../components/about/terminal";
-import Main from "../../components/about/main";
 import { BatteryIndicator } from "../../components/about/BatteryIndicator";
 import { Toaster } from 'react-hot-toast';
+import Folder from "../../components/about/folder";
 
 
 import {
@@ -21,6 +22,7 @@ import Footer from "../../layout/footer";
 
 export default function About() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isFolderOpen, setIsFolderOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [messageCount, setMessageCount] = useState(0);
 
@@ -36,7 +38,9 @@ export default function About() {
     <div className="relative">
       <Toaster position="top-center" />
     <main className="relative z-30 h-[200vh] w-full overflow-x-hidden flex flex-col bg-[#0B0B0B]  text-white">
-
+      <div className="absolute w-full text-center m-14  ">
+      <h1 className="text-xl text-[30px]">let talk</h1> 
+      </div>
     <div className="min-h-screen font-[SFCompactRounded]  p-10 flex items-center justify-center">
       <div className="w-full max-w-5xl">
         {/* Main Mac Window */}
@@ -104,11 +108,12 @@ export default function About() {
           {/* Desktop Area */}
           <div className="min-h-[600px] p-6 relative">
             {/* Terminal Icon */}
+            <div className="flex gap-6">
             <div 
-              onClick={() => setIsTerminalOpen(true)}
-              className="w-16 flex flex-col items-center gap-2 cursor-pointer hover:opacity-80"
-            >
-              <SiGnometerminal className="text-4xl outline-4 outline-gray-600 " />
+                onClick={() => setIsTerminalOpen(true)}
+                className="w-16 flex flex-col items-center gap-2 cursor-pointer hover:opacity-80"
+              >
+              <SiGnometerminal className="text-5xl outline-4 outline-gray-600 " />
               <span className="text-xs text-white">Terminal</span>
             </div>
 
@@ -119,13 +124,28 @@ export default function About() {
                 onMessageCountChange={setMessageCount}
               />
             )}
+              {/* Folder Icon */}
+              <div 
+                onClick={() => setIsFolderOpen(true)}
+                className="w-16 flex flex-col items-center gap-2 cursor-pointer hover:opacity-80"
+              >
+                <IoFolderOpenSharp className="text-5xl " />
+                <span className="text-xs text-white">CV</span>
+              </div>
+
+           {/* Folder Window */}
+              {isFolderOpen && (
+                <Folder onClose={() => setIsFolderOpen(false)} />
+              )}
           </div>
-        </div>
+          </div>
+           </div>
       </div>
       
     </div>
 
-    <Main/>
+    {//<Main/>
+     }
     
 
       
