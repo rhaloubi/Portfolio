@@ -44,12 +44,17 @@ export default function About() {
       <div className="w-full max-w-5xl">
         {/* Main Mac Window */}
         <div 
-          className="bg-[#464646] rounded-lg shadow-2xl overflow-hidden border border-gray-700"
+          className="bg-[#464646] rounded-lg overflow-hidden border border-gray-700"
           style={{
             backgroundImage: 'url("/img/bullseye-gradient.svg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            boxShadow: 
+              '-10px 0 15px -8px rgba(75,75,75,0.5), ' +    // left shadow
+              '10px 0 15px -8px rgba(75,75,75,0.5), ' +     // right shadow
+              '0 20px 35px -10px rgba(75,75,75,0.8), ' +     // bottom shadow
+              '0 4px 25px rgba(75,75,75,0.3)'                 // top shadow
           }}
         >
           {/* Window Header */}
