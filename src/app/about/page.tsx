@@ -7,6 +7,7 @@ import Terminal from "../../components/about/terminal";
 import { BatteryIndicator } from "../../components/about/BatteryIndicator";
 import { Toaster } from 'react-hot-toast';
 import Folder from "../../components/about/folder";
+import Hero from "../../components/about/hero";
 
 
 import {
@@ -38,9 +39,7 @@ export default function About() {
     <div className="relative">
       <Toaster position="top-center" />
     <main className="relative z-30 h-[200vh] w-full overflow-x-hidden flex flex-col bg-[#0B0B0B]  text-white">
-      <div className="absolute w-full text-center m-14  ">
-      <h1 className="text-xl text-[30px]">let talk</h1> 
-      </div>
+     <Hero/>
     <div className="min-h-screen font-[SFCompactRounded]  p-10 flex items-center justify-center">
       <div className="w-full max-w-5xl">
         {/* Main Mac Window */}
