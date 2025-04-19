@@ -54,11 +54,11 @@ export default function About() {
           }}
         >
           {/* Window Header */}
-          <div className="bg-[#2d2d2d] px-2 py-1 flex items-center">
-            <div className="flex items-center space-x-3">
+          <div className="bg-[#2d2d2d] px-2  flex items-center">
+            <div className="flex items-center ">
               <FaApple className="mr-3" />
               <DropdownMenu >
-                <DropdownMenuTrigger className="text-[13px]">File</DropdownMenuTrigger>
+                <DropdownMenuTrigger className="text-[13px] px-2 hover:bg-gray-700 rounded-sm">File</DropdownMenuTrigger>
                 <DropdownMenuContent className="text-white  p-2 border-0 font-[SFCompactRounded]  bg-[#0B0B0B]">
                   <DropdownMenuItem className="text-[12px] py-[-8px]  hover:bg-[#cf5487]">Profile</DropdownMenuItem>
                   <DropdownMenuSeparator className="border-b border-gray-600 mx-2" />
@@ -68,7 +68,7 @@ export default function About() {
                 </DropdownMenuContent>
               </DropdownMenu>
               <DropdownMenu >
-                <DropdownMenuTrigger className="text-[13px]">View</DropdownMenuTrigger>
+                <DropdownMenuTrigger className="text-[13px] px-2 hover:bg-gray-700 rounded-sm">View</DropdownMenuTrigger>
                 <DropdownMenuContent className="text-white  p-2 border-0 font-[SFCompactRounded]  bg-[#0B0B0B]">
                   <DropdownMenuItem className="text-[12px] py-[-8px]  hover:bg-[#cf5487]">Profile</DropdownMenuItem>
                   <DropdownMenuSeparator className="border-b border-gray-600 mx-2" />
@@ -78,7 +78,7 @@ export default function About() {
                 </DropdownMenuContent>
               </DropdownMenu>
               <DropdownMenu >
-                <DropdownMenuTrigger className="text-[13px]">Help</DropdownMenuTrigger>
+                <DropdownMenuTrigger className="text-[13px] px-2 hover:bg-gray-700 rounded-sm">Help</DropdownMenuTrigger>
                 <DropdownMenuContent className="text-white  p-2 border-0 font-[SFCompactRounded]  bg-[#0B0B0B]">
                   <DropdownMenuItem className="text-[12px] py-[-8px]  hover:bg-[#cf5487]">Profile</DropdownMenuItem>
                   <DropdownMenuSeparator className="border-b border-gray-600 mx-2" />

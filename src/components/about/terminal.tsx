@@ -136,9 +136,16 @@ if (newCommands.length > 0) {
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="flex space-x-2">
-          <div className="w-3 h-3 rounded-full bg-red-500 cursor-pointer" onClick={onClose}></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        <div 
+            className="w-3 h-3 rounded-full bg-red-500 cursor-pointer relative group"
+            onClick={onClose}
+          >
+            <span className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 text-[14px] text-black opacity-0 group-hover:opacity-100 font-bold leading-none">
+              ×
+            </span>
+          </div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500 cursor-default"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500 cursor-default"></div>
         </div>
         <div className="flex-1 text-center text-sm text-gray-400">
           redahaloubi — qemu-system-x86_64 — -zsh — 114×31
