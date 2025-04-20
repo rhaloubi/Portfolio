@@ -40,7 +40,7 @@ export default function Footer() {
     if (window.innerWidth < 640) { // mobile screens
       ScrollTrigger.create({
         trigger:"footer",
-         markers: true,
+         //markers: true,
         end: "45% center",
         onEnterBack: () => {
           if (isOpenRef.current === 1) {
@@ -52,7 +52,7 @@ export default function Footer() {
     // Black section scroll detection
     ScrollTrigger.create({
         trigger:"footer",
-         markers: true,
+         //markers: true,
         end: "65% center",
         onEnterBack: () => {
           if (isOpenRef.current === 1) {
