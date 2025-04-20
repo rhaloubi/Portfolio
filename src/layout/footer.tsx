@@ -37,10 +37,22 @@ export default function Footer() {
       },
     });
 
+    if (window.innerWidth < 640) { // mobile screens
+      ScrollTrigger.create({
+        trigger:"footer",
+         markers: true,
+        end: "45% center",
+        onEnterBack: () => {
+          if (isOpenRef.current === 1) {
+            handleCloseClick();
+          }
+        }
+      });
+    } else {
     // Black section scroll detection
     ScrollTrigger.create({
         trigger:"footer",
-         //markers: true,
+         markers: true,
         end: "65% center",
         onEnterBack: () => {
           if (isOpenRef.current === 1) {
@@ -48,8 +60,12 @@ export default function Footer() {
           }
         },
       });
+    }
     
-      
+      // Add resize listener
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
+    });
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -88,28 +104,19 @@ export default function Footer() {
     }
   };
 
-  // Add with other refs
-  const newsletterRef = useRef<HTMLInputElement>(null);
   
-  // Add with other functions
-  const handleNewsletterFocus = () => {
-    gsap.to(newsletterRef.current, {
-      duration: 1,
-      text: "Enter your email",
-      ease: "none",
-    });
-  };
+
 
   return (
-    <footer className="relative font-[FormulaCondensed] bg-[#fef9e3] h-[155vh] overflow-x-hidden">
+    <footer className="relative font-[FormulaCondensed] bg-[#fef9e3] h-[125vh] sm:h-[155vh] overflow-x-hidden">
       {/* White section */}
       <div
         ref={whiteRef}
-        className="absolute top-0 left-0 w-screen h-[100vh] bg-[#fef9e3] flex items-end justify-center z-20"
+        className="absolute top-0 left-0 w-screen h-[65vh] sm:h-[100vh] bg-[#fef9e3] flex items-end justify-center z-20"
       >
-        <div className="w-screen text-center px-2">
+        <div className="w-screen text-center px-4">
           <h2
-            className="text-[280px] w-full font-bold text-black leading-none"
+            className="text-[75px] sm:text-[160px] md:text-[220px] lg:text-[280px] w-full font-bold text-black leading-none"
             style={{
               fontFamily: "'Bowlby One SC', sans-serif",
             }}
@@ -124,37 +131,36 @@ export default function Footer() {
         ref={redRef}
         className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-end z-10"
       >
-        <div className="  px-8">
-          <div className="flex justify-between">
+        <div className="px-4 sm:px-6 md:px-8">
+          <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-0">
             {/* Left Section - Reach Out */}
             <div className="space-y-4">
-              <h4 className="text-gray-400 text-4xl font-bold">REACH OUT </h4>
+              <h4 className="text-gray-400 text-2xl sm:text-3xl md:text-4xl font-bold">REACH OUT </h4>
               <p>
-              <Link 
-                href="mailto:redahaloubi8@gmail.com" 
-                className="text-white text-2xl hover:text-gray-300 transition-colors"
-              >
-                redahaloubi8@gmail.com
-              </Link>
+                <Link 
+                  href="mailto:redahaloubi8@gmail.com" 
+                  className="text-white text-lg sm:text-xl md:text-2xl hover:text-gray-300 transition-colors break-all"
+                >
+                  redahaloubi8@gmail.com
+                </Link>
               </p>
-             <p>
-              <Link 
-                href="tel:+212631354797" 
-                className="text-white text-2xl hover:text-gray-300 transition-colors"
-              >
-                +212 (0)63 1354797
-              </Link>
+              <p>
+                <Link 
+                  href="tel:+212631354797" 
+                  className="text-white text-lg sm:text-xl md:text-2xl hover:text-gray-300 transition-colors"
+                >
+                  +212 (0)63 1354797
+                </Link>
               </p>
             </div>
 
             {/* Right Section - Other Links */}
-            <div className="grid grid-cols-3 gap-20 mr-8">
-              <div className="space-y-4">
-                
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-20 mr-0 md:mr-8">
+              <div className="space-y-4 hidden md:block">
               </div>
               <div className="space-y-2">
-                <h4 className="text-gray-400 text-2xl font-bold ">SOCIAL</h4>
-                <ul className="text-white text-xl space-y-2">
+              <h4 className="text-gray-400 text-xl md:text-2xl font-bold">SOCIAL</h4>
+              <ul className="text-white text-lg md:text-xl space-y-2">
                   <Link href={"https://www.instagram.com/reda__hl"}
                   target="_blank" 
                   rel="noopener noreferrer" 
@@ -176,8 +182,9 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h4 className="text-gray-400 text-2xl font-bold">NAV</h4>
-                <ul className="text-white text-xl space-y-2">
+              <h4 className="text-gray-400 text-xl md:text-2xl font-bold">NAV</h4>
+                <ul className="text-white text-lg md:text-xl space-y-2">
+                  {/* Navigation links remain the same */}
                   <li>
                     <Link 
                       href="/"
@@ -236,30 +243,30 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center mt-[12vh]">
-          <form method='post' className="flex items-center mb-2 border-b-[1px] border-white gap-4">
-            <input
-              type="email"
-              className="text-[50px]  font-[TTTrailers] text-gray-300 bg-transparent outline-none cursor-pointer hover:text-gray-300 transition-colors w-[400px]  focus:border-white"
-              placeholder="Enter Your Email"
-            />
-            <button 
-              type="submit" 
-              className="text-white text-4xl  hover:text-gray-300 transition-colors cursor-pointer mb-2"
-            >
-              <FaArrowLeft className="h-[45px] w-[60px]" />
-            </button>
-          </form>
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-8 sm:mt-[12vh] gap-4">
+            <form method='post' className="flex items-center mb-2 border-b-[1px] border-white gap-4 w-full sm:w-auto">
+              <input
+                type="email"
+                className="text-[30px] sm:text-[40px] md:text-[50px] font-[TTTrailers] text-gray-300 bg-transparent outline-none cursor-pointer hover:text-gray-300 transition-colors w-full sm:w-[300px] md:w-[400px] focus:border-white"
+                placeholder="Enter Your Email"
+              />
+              <button 
+                type="submit" 
+                className="text-white text-2xl sm:text-3xl md:text-4xl hover:text-gray-300 transition-colors cursor-pointer mb-2"
+              >
+                <FaArrowLeft className="h-[35px] w-[40px] sm:h-[40px] sm:w-[50px] md:h-[45px] md:w-[60px]" />
+              </button>
+            </form>
 
             <FaArrowDown 
-              className="text-white text-4xl h-[75px] w-[70px] mb-4 hover:text-gray-300 transition-colors cursor-pointer" 
+              className="text-white text-4xl h-[45px] w-[40px] sm:h-[60px] sm:w-[55px] md:h-[75px] md:w-[70px] mb-4 hover:text-gray-300 transition-colors cursor-pointer" 
               onClick={handleClick}
             />
           </div>
         </div>
       </div>
       <div onClick={handleClick} className="fixed top-0 left-0 w-full h-screen bg-green-800 flex flex-col justify-end">
-        <h1 className=" text-center text-xl text-white"> i need some ideas for this section 😭</h1>
+        <h1 className="text-center text-lg sm:text-xl text-white px-4">i need some ideas for this section 😭</h1>
       </div>
       <audio ref={audioRef} src="/click.mp3" preload="auto" />
     </footer>
