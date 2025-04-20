@@ -38,7 +38,7 @@ export default function About() {
   return (
     <div className="relative">
       <Toaster position="top-center" />
-    <main className="relative z-30 h-[200vh] w-full overflow-x-hidden flex flex-col bg-[#0B0B0B] text-white">
+    <main className="relative z-30 h-[150vh] sm:h-[170vh] w-full overflow-x-hidden flex flex-col bg-[#0B0B0B] text-white">
       <Hero/>
       <div className="min-h-screen font-[SFCompactRounded] p-4 sm:p-6 md:p-10 flex items-center justify-center">
         <div className="w-full max-w-5xl">
