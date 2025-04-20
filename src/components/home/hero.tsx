@@ -90,34 +90,28 @@ export default function Hero() {
       {/* Top green text */}
       <div className="absolute top-[100px] left-2/3 -translate-x-1/2 text-center w-[340px] z-20">
         <p className="font-[AtomicMarker] text-[39px] text-[#399918] tracking-wider">
-          CREATIVE DEVELOPER & DESIGNER
+        Full-Stack Developer & Creative Technologist
         </p>
       </div>
 
       {/* Main centered text */}
       <div className="absolute  top-[620px] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full z-10">
         <h1 className="font-[TTTrailers] text-[264px] leading-[198px] text-white mb-8" style={{ letterSpacing: '-0.02em' }}>
-          CREATIVE
+        CREATIVE 
           <br />
-          VISION
+          ENGINEER
         </h1>
         
         <p className="max-w-2xl mx-auto text-gray-400 text-lg px-4">
-        Snack met ons de wereld beter. Want wij maken diepvries snacks met groente van
-        dichtbij, zonder omwegen van boer tot frituur. Samen met onze boeren en telers
-        redden we ook nog eens zoveel mogelijk groenten. Zo bestaat onze krokante korst
-        uit chips die geupcycled is en maken we onze maisribs van maiskolven die te klein 
-        of licht beschadigd zijn. Verder vind je In onze snacks geen onnodige toevoegingen! Wij hebben dus voor jou al die verantwoordelijkheid genomen, zodat jij wel de lusten hebt en niet de lasten. Oh, en ja! Al onze snacks zijn 100% plantaardig.
-
+        {"I’m "} 
+         <span className='text-white text-2xl cursor-crosshair font-[TTTrailers] relative group'>
+              Haloubi Reda
+          <span className='absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full'></span>
+        </span>
+        {" — a computer engineering student from Tangier with a vision to turn code into meaningful digital experiences. My work lives at the intersection of logic and creativity, where I build intuitive interfaces, scalable systems, and immersive products that not only function flawlessly, but look and feel exceptional. Whether it's a bold front-end interface or a robust back-end engine, I craft with purpose and precision. "}
+        <br/>{"Explore my world of code, design, and innovation — and let’s create something remarkable togethe"}
 
         </p>
-      </div>
-      <div className='absolute bg-[#fef9e3] mt-20 text-[250px] bottom-0 whitespace-nowrap z-0 -translate-y-1/2 rotate-[-2deg] text-center leading-none w-full mb-[-50px] '>
-      <div className='border-y-2 font-[TTTrailers] border-black my-1  '>
-        <h3 ref={bottomTextRef} className='text-black select-none pointer-events-none' >
-          About section * About section *  About section *  About section 
-          </h3>  
-      </div>
       </div>
     </div>
   );
