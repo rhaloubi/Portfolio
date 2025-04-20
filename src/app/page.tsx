@@ -6,15 +6,12 @@ import Hero from "../components/home/hero";
 import About from "../components/home/about";
 import Widget from '../components/spotify/widgets';
 import Footer from "../layout/footer";
-
+import Work from "../components/work/main";
 
 export default function HomePage() {
-  const [showHomepage, setShowHomepage] = useState(false);
-  const contentRef = useRef(null);
 
-  useEffect(() => {
-    setShowHomepage(true);
-  }, []);
+
+
 
   return (
     <div className="relative overflow-hidden">
@@ -22,8 +19,7 @@ export default function HomePage() {
         <Hero/> 
         <About/>
         <Widget/>
-        <div ref={contentRef} className="relative h-screen">
-        </div>
+        <Work/>
       </main>
      
       <div className="relative z-0">

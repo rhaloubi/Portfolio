@@ -48,17 +48,10 @@ export default function Hero() {
       // markers: true,
       scrub: 1,
       onUpdate: (self) => {
-        if ( self.progress > 0) {
-          gsap.to(containerRef.current, {
+        if (self.progress > 0 && self.progress < 1) {
+          gsap.set(containerRef.current, {
             position: 'fixed',
             top: '50%',
-            duration: 0
-          });
-        } else if (self.progress > 1 && self.progress === 0) {
-          gsap.to(containerRef.current, {
-            position: 'absolute',
-            top: '50%',
-            duration: 0
           });
         }
       },
