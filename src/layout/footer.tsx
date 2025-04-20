@@ -12,7 +12,9 @@ import { TextPlugin } from 'gsap/TextPlugin';
 
 
 // Add at the top with other imports
-gsap.registerPlugin(TextPlugin);
+
+// Register plugins
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 export default function Footer() {
   const router = useRouter();
@@ -23,53 +25,46 @@ export default function Footer() {
   const { audioRef, playTickSound } = useClickSound();
 
   useEffect(() => {
-    // White section animation
-    gsap.to(whiteRef.current, {
-      rotateZ: -5,
-      x: "-5%",
-      duration: 2.5,
-      ease: "power3.inOut",
-      scrollTrigger: {
-        trigger: whiteRef.current,
-        start: "top top",
-        end: "bottom center",
-        scrub: 1,
-      },
-    });
-
-    if (window.innerWidth < 640) { // mobile screens
-      ScrollTrigger.create({
-        trigger:"footer",
-         //markers: true,
-        end: "45% center",
-        onEnterBack: () => {
-          if (isOpenRef.current === 1) {
-            handleCloseClick();
-          }
-        }
+    // Ensure we're in the browser environment
+    if (typeof window !== 'undefined') {
+      // White section animation
+      gsap.to(whiteRef.current, {
+        rotateZ: -5,
+        x: "-5%",
+        duration: 2.5,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: whiteRef.current,
+          start: "top top",
+          end: "bottom center",
+          scrub: 1,
+        },
       });
-    } else {
-    // Black section scroll detection
-    ScrollTrigger.create({
-        trigger:"footer",
-         //markers: true,
-        end: "65% center",
+
+      // Create ScrollTrigger based on screen width
+      ScrollTrigger.create({
+        trigger: "footer",
+        end: window.innerWidth < 640 ? "45% center" : "65% center",
+        //markers: true,
         onEnterBack: () => {
           if (isOpenRef.current === 1) {
             handleCloseClick();
           }
         },
       });
-    }
-    
-      // Add resize listener
-    window.addEventListener('resize', () => {
-      ScrollTrigger.refresh();
-    });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+      // Add resize listener with cleanup
+      const handleResize = () => {
+        ScrollTrigger.refresh();
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }
   }, []);
 
   const handleNewsletterClick = () => {
@@ -116,7 +111,7 @@ export default function Footer() {
       >
         <div className="w-screen text-center px-4">
           <h2
-            className="text-[75px] sm:text-[160px] md:text-[220px] lg:text-[280px] w-full font-bold text-black leading-none"
+            className="text-[75px] sm:text-[170px] md:text-[280px]  w-full font-bold text-black leading-none"
             style={{
               fontFamily: "'Bowlby One SC', sans-serif",
             }}
