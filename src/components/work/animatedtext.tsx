@@ -52,7 +52,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
   return (
     <span
       ref={spanRef}
-      className="text-white font-[TTTrailers] text-[47px] px-3 md:text-[70px] inline-block"
+      className=" font-[TTTrailers] text-[47px] px-3 md:text-[70px] inline-block"
     >
       {text}
     </span>
