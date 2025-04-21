@@ -149,14 +149,14 @@ if (newCommands.length > 0) {
         left: isMobile ? 0 : '50%',
         top: isMobile ? 0 : '50%',
         width: isMobile ? '100%' : undefined,
-        height: isMobile ? '100vh' : undefined,
+        height: isMobile ? '100%' : undefined,
       }}
       className={`${
-        !isMobile ? 'w-[95%] sm:w-[90%] md:w-[80%] h-[400px] sm:h-[450px] md:h-[500px]' : ''
-      } bg-black rounded-lg shadow-2xl overflow-hidden border border-gray-700`}
+        !isMobile ? 'w-[95%] sm:w-[90%] md:w-[80%] h-[350px] sm:h-[450px] md:h-[500px]' : ''
+      } bg-black rounded-lg shadow-2xl overflow-hidden border border-gray-700 flex flex-col`}
     >
       <div 
-        className="bg-gray-800 px-2 sm:px-4 py-1 sm:py-2 flex items-center cursor-move"
+        className="bg-gray-800 px-2 sm:px-4 py-1 sm:py-2 flex items-center cursor-move shrink-0"
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="flex space-x-1 sm:space-x-2">
@@ -200,7 +200,7 @@ if (newCommands.length > 0) {
             </div>
           ))}
         </div>
-        <div className="flex mt-1 sm:mt-2 border-t border-gray-800 px-1 sm:px-2 pt-1 sm:pt-2 text-sm sm:text-base">
+        <div className="flex mt-1 sm:mt-2 border-t border-gray-800 px-1 sm:px-2 pt-1 sm:pt-2 text-sm sm:text-base shrink-0">
           <span className="text-purple-500">➜</span>
           <span className="text-blue-500 ml-1 sm:ml-2 hidden sm:inline">~/Desktop/portfolio</span>
           <span className="text-blue-500 ml-1 sm:ml-2 sm:hidden">~</span>
@@ -210,10 +210,14 @@ if (newCommands.length > 0) {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={isLoading ? "Processing..." : "Ask...!"}
-            className="ml-1 sm:ml-2 bg-transparent text-white focus:outline-none w-full resize-none overflow-hidden text-sm sm:text-base"
+            className="ml-1 sm:ml-2 bg-transparent text-white focus:outline-none w-full resize-none overflow-hidden text-sm sm:text-base pb-2"
             autoFocus
             disabled={isLoading}
-            style={{ minHeight: '1.2em' }}
+            style={{ 
+              minHeight: '1.2em',
+              maxHeight: '4.8em',
+              overflowY: 'auto'
+            }}
           />
         </div>
       </div>

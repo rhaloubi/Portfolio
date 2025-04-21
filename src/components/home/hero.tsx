@@ -75,7 +75,7 @@ export default function Hero() {
     <div ref={sectionRef} className="relative min-h-[120vh] sm:min-h-[170vh] w-full overflow-hidden bg-[#0B0B0B] text-white px-4">
       {/* Background moving text */}
       <div ref={containerRef} className="fixed top-[45%] w-screen whitespace-nowrap z-0 -translate-y-1/2 rotate-[+2deg] overflow-hidden">
-        <h2 ref={backgroundTextRef} className="font-[TTTrailers] text-[120px] sm:text-[200px] md:text-[280px] lg:text-[350px] tracking-tighter text-transparent [-webkit-text-stroke:1px_#FF70AB] sm:[-webkit-text-stroke:2px_#FF70AB] md:[-webkit-text-stroke:3px_#FF70AB] lg:[-webkit-text-stroke:4px_#FF70AB] opacity-30 select-none pointer-events-none">
+        <h2 ref={backgroundTextRef} className="font-[TTTrailers] text-[200px] md:text-[280px] lg:text-[350px] tracking-tighter text-transparent  [-webkit-text-stroke:2px_#FF70AB] lg:[-webkit-text-stroke:3px_#FF70AB] opacity-30 select-none pointer-events-none">
         Haloubi Reda * Haloubi Reda * Haloubi Reda * Haloubi Reda
         </h2>
       </div>

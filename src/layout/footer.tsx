@@ -124,7 +124,7 @@ export default function Footer() {
       {/* Black section */}
       <div
         ref={redRef}
-        className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-end z-10"
+        className=" fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-end z-10"
       >
         <div className="px-4 sm:px-6 md:px-8">
           <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-0">
@@ -260,6 +260,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {/* Newsletter section */}
       <div onClick={handleClick} className="fixed top-0 left-0 w-full h-screen bg-green-800 flex flex-col justify-end">
         <h1 className="text-center text-lg sm:text-xl text-white px-4">i need some ideas for this section 😭</h1>
       </div>
