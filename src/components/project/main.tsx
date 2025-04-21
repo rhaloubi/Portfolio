@@ -1,6 +1,5 @@
 "use client"
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -23,8 +22,9 @@ interface Project {
 }
 
 export default function ProjectMain() {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const SelectRef = useRef<HTMLDivElement>(null);
 
   const project: Project = {
     id: "plane",
@@ -52,69 +52,98 @@ export default function ProjectMain() {
     ]
   };
 
+
+
+  useEffect(() => {
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: SelectRef.current,
+      start: 'top 10%',
+      end: 'bottom 40%',
+      //markers: true,
+      pin: containerRef.current,
+      pinSpacing: false,
+      scrub: 1,
+      onUpdate: (self) => {
+        if (self.progress > 0 && self.progress < 1) {
+          gsap.set(containerRef.current, {
+            rotation: 0,
+            position: 'fixed',
+            top: '10%',
+          });
+        }
+      },
+      onLeave: () => {
+        gsap.to(containerRef.current, {
+          position: 'absolute',
+          top: 0,
+          duration: 0
+        });
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+  })
+
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen font-[SFCompactRounded] bg-black px-3 pt-20 text-white">
+
+    <div className='w-full h-[82vh]'>
+        <img className='w-full h-full object-cover'
+            src="/img/bullseye-gradient.svg"  
+            alt="" />
+    </div>
       {/* Header Section */}
-      <div className="w-full py-8 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-            <div className="flex-1">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">{project.title}</h1>
-              <p className="text-gray-400 text-lg">{project.description}</p>
-            </div>
-            <div className="flex flex-col gap-4 text-sm">
-              <div>
+      <div className="w-full py-4 ">
+          <div
+          ref={SelectRef} 
+          className="flex flex-col md:flex-row justify-between items-start gap-4">
+            {/* Left Section - 1/3 width */}
+            <div
+            ref={containerRef} 
+            className="w-full items-start md:w-1/3">
+              <h1 className="text-4xl md:text-6xl font-[TTTrailers]  ">{project.title}</h1>
                 <h3 className="text-gray-500 uppercase mb-1">ROLE</h3>
-                <p>{project.role}</p>
+            </div>
+            
+            {/* Right Section - 2/3 width */}
+            <div className="w-full md:w-2/3 flex flex-col gap-4">
+              <p className=" text-lg">{project.description}</p>
+              <div className="flex gap-12">
+                <div>
+                  <h3 className="text-gray-500 uppercase mb-1">COLLABORATORS</h3>
+                  {project.collaborators.map((collaborator, index) => (
+                    <p key={index}>{collaborator}</p>
+                  ))}
+                </div>
+                <div>
+                  <h3 className="text-gray-500 uppercase mb-1">ROLE</h3>
+                  {project.collaborators.map((ROLE, index) => (
+                    <p key={index}>{ROLE}</p>
+                  ))}
+                </div>
+                <div>
+                  <h3 className="text-gray-500 uppercase mb-1">DURATION</h3>
+                  <p>{project.duration}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-gray-500 uppercase mb-1">COLLABORATORS</h3>
-                {project.collaborators.map((collaborator, index) => (
-                  <p key={index}>{collaborator}</p>
-                ))}
+              <div className='w-full h-[82vh]'>
+                  <img className='w-full h-full object-cover'
+                      src="/img/bullseye-gradient.svg"  
+                      alt="" />
               </div>
-              <div>
-                <h3 className="text-gray-500 uppercase mb-1">DURATION</h3>
-                <p>{project.duration}</p>
+              <div className='w-full h-[82vh]'>
+                  <img className='w-full h-full object-cover'
+                      src="/img/bullseye-gradient.svg"  
+                      alt="" />
               </div>
+              <p className=" text-lg">{project.description}</p>
+
             </div>
           </div>
         </div>
       </div>
 
-      {/* Tasks Section */}
-      <div className="w-full px-4 md:px-8 py-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-[#111] rounded-lg p-6">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-4">
-                <span className="text-sm">🌍 EV World Automobiles</span>
-                <span className="text-sm">📋 Issues</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <button className="px-4 py-1 bg-blue-500 rounded-md text-sm">+ Add Issue</button>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              {project.tasks.map((task, index) => (
-                <div key={task.id} className="flex items-center justify-between p-3 hover:bg-[#222] rounded-lg">
-                  <div className="flex items-center gap-4">
-                    <span>🔸</span>
-                    <span className="text-gray-400">{task.id}</span>
-                    <span>{task.title}</span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm text-blue-400">{task.category}</span>
-                    <span className="text-sm text-gray-400">{task.status}</span>
-                    <span className="text-sm text-gray-400">{task.date}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+       );
 }
