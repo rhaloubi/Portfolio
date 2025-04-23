@@ -99,6 +99,23 @@ export default function Footer() {
     }
   };
 
+  const scrollToWork = async () => {
+    if (window.location.pathname === '/') {
+      const workSection = document.querySelector('.row-title');
+      if (workSection) {
+        workSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      await router.push('/');
+      setTimeout(() => {
+        const workSection = document.querySelector('.row-title');
+        if (workSection) {
+          workSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   
 
 
@@ -199,22 +216,14 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link 
-                      href="/works"
+                    <button 
                       className="menu-item relative group cursor-pointer" 
                       onMouseEnter={playTickSound}
-                      onClick={(e: React.MouseEvent) => {
-                        e.preventDefault();
-                        if (window.location.pathname === '/works') {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        } else {
-                          router.push('/works');
-                        }
-                      }}
+                      onClick={scrollToWork}
                     >
                       Work
                       <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
-                    </Link>
+                    </button>
                   </li>
                   <li>
                     <Link 

@@ -4,11 +4,13 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from "../../components/ui/button";
 import BottomText from '../about/BottomText';
+import { useRouter } from 'next/navigation';
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  const router = useRouter();
   const titleRef = useRef(null);
 
   useEffect(() => {
@@ -70,6 +72,7 @@ export default function About() {
       <div className='flex items-center justify-center w-full md:w-[50vw] mt-8 mb-3'>
         <Button 
           className="relative inline-flex text-[20px] md:text-[24px] font-[TTTrailers] border-t border-l border-[#FF70AB] rounded-full h-12 md:h-13 items-center px-6 md:px-10 py-2 bg-[length:200%_100%] text-white transition-all duration-500 hover:bg-[center_right_10px] hover:shadow-lg hover:shadow-red-500/50"
+          onClick={() => router.push('/about')}
         >
           About mE
         </Button>
