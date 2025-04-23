@@ -39,7 +39,7 @@ export default function HeaserText({ text }: HeaserTextProps) {
       scrollTrigger = ScrollTrigger.create({
         trigger: containerRef.current,
         start: '8% top',
-        end: '300% top',
+        end: '500% top',
         //markers: true,
         pin: containerRef.current,
         pinSpacing: false,
