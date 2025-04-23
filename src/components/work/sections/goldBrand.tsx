@@ -1,6 +1,9 @@
 import { Button } from "../../ui/button";
+import { useRouter } from 'next/navigation';
 
 export default function GoldBrand() {
+    const router = useRouter();
+    
     return (
         <div className=" flex flex-col font-[SFCompactRounded] md:flex-row gap-8">
             <div className="flex-1 p-4 text-center">
@@ -10,6 +13,7 @@ export default function GoldBrand() {
                 </p>
                 <Button 
                 className="relative inline-flex text-[20px] md:text-[24px] font-[TTTrailers] border-t border-l border-[#399918] rounded-full h-12 md:h-13 items-center px-6 md:px-10 py-2 bg-[length:200%_100%] text-white transition-all duration-500 hover:bg-[center_right_10px] hover:shadow-lg hover:shadow-green-300/50"
+                onClick={() => router.push('/projects/GoldBrand')}
                 >
                 Check Project
                 </Button>

@@ -1,5 +1,5 @@
 import Footer from "~/layout/footer";
-import ProjectMain from "~/components/project/main";
+import ProjectMain from "~/components/project/Moratel/main";
 
 export default function ProjectPage() {
 
