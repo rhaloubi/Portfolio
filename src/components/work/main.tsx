@@ -6,6 +6,8 @@ import HeaderText from './header';
 import { motion, AnimatePresence } from 'framer-motion';
 import GoldBrand from './sections/goldBrand';
 import SectionERP from './sections/ERP';
+import SectionBank from './sections/Bank';
+import SectionPort from './sections/Port';
 
 export default function Work() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -78,7 +80,7 @@ export default function Work() {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="w-full  overflow-hidden"
             >
-                          <SectionERP />
+                          <SectionBank />
 
             </motion.div>
           )}
@@ -90,7 +92,7 @@ export default function Work() {
         onClick={() => handleProjectClick(2)}
       >
         <h2 className="flex items-center justify-between">
-          <AnimatedText text="MORATEL-ERP : " />
+          <AnimatedText text="Omaadness : " />
           <div className="flex items-center gap-2">
           <span className="text-[20px] md:text-[30px] font-[AtomicMarker] mr-1">2024</span>
           <IoIosArrowDropdown className="text-2xl md:text-3xl text-gray-100 mr-4" />
@@ -106,7 +108,7 @@ export default function Work() {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="w-full border-b border-white overflow-hidden"
             >
-              <SectionERP />
+              <SectionPort />
             </motion.div>
           )}
       </AnimatePresence>
