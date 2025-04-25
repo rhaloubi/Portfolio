@@ -95,7 +95,7 @@ export default function Header() {
             }
           }}
         >
-          Logo
+          Reda
         </Link>
 
         {/* Right side - Works & About */}

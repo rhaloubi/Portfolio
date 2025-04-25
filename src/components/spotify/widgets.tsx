@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react';
 import PlayWidget from 'react-spotify-widgets';
 import Head from 'next/head';

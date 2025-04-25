@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef, useState, useEffect } from "react";
 
 import Hero from "../components/home/hero";
 import About from "../components/home/about";

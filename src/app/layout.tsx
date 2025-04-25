@@ -2,13 +2,11 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import PageTransition from "~/components/PageTransition";
-
 import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import Preloader from "~/components/Preloader";
 import { ReactLenis } from "../lib/lenis";
 import Header from "../layout/header";
-
 import { Azeret_Mono } from "next/font/google";
 
 const azeretMono = Azeret_Mono({
@@ -41,6 +39,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${GeistSans.variable} ${azeretMono.className} ${loading ? "h-screen overflow-hidden" : ""}`}>
+      <head>
+        <link rel="icon" href="/img/shape.svg" type="image/svg+xml" />
+      </head>
       <ReactLenis root>
         <body className={`bg-current ${loading ? "overflow-hidden h-screen pointer-events-none" : ""}`}>
           <div className={`relative`}>
