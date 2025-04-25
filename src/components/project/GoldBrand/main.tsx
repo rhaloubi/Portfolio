@@ -163,7 +163,7 @@ export default function ProjectMain() {
                   className="w-full flex bg-gray-950 justify-between items-center px-3 py-4 text-gray-400 hover:bg-gray-800/80 hover:text-white rounded-md transition-all duration-300"
                 >
                   <span>Website</span>
-                  <span className="transform transition-transform duration-300 group-hover:translate-x-2">></span>
+                  <span className="transform transition-transform duration-300 group-hover:translate-x-2">{'>'}</span>
                 </Link>
               </div>
               
@@ -173,7 +173,7 @@ export default function ProjectMain() {
                   className="w-full flex justify-between bg-gray-950 items-center px-3 py-4 text-gray-400 hover:bg-gray-800/80 hover:text-white rounded-md transition-all duration-300"
                 >
                   <span>Code Source</span>
-                  <span className="transform transition-transform duration-300 group-hover:translate-x-2">></span>
+                  <span className="transform transition-transform duration-300 group-hover:translate-x-2">{'>'}</span>
                 </Link>
               </div>
             </div>
