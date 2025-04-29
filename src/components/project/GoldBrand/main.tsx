@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from "next/link";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,12 +27,12 @@ export default function ProjectMain() {
   const containerRef = useRef<HTMLDivElement>(null);
   const SelectRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState({
-    image1: false,
-    image2: false,
-    image3: false,
-    image4: false,
-    image5: false
+  const [loading, setLoading] = useState({
+    image1: true,
+    image2: true,
+    image3: true,
+    image4: true,
+    image5: true
   });
 
   const project: Project = {
@@ -106,27 +107,31 @@ export default function ProjectMain() {
     }
   }, [isMobile]);
 
-  const handleImageLoad = (imageKey: keyof typeof imagesLoaded) => {
-    setImagesLoaded(prev => ({
+  const handleImageLoad = (imageKey: keyof typeof loading) => {
+    setLoading(prev => ({
       ...prev,
-      [imageKey]: true
+      [imageKey]: false
     }));
   };
 
   return (
     <div className="min-h-screen font-[SFCompactRounded] bg-black px-3 pt-20 text-white">
       <div className='w-full h-[50vh] md:h-[82vh] relative'>
-        {!imagesLoaded.image1 && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+        {loading.image1 && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
           </div>
         )}
-        <img 
-          className='w-full h-full object-cover'
-          src="/img/Goldbrand/2.jpg"
-          alt="Gold Brand Preview"
-          onLoad={() => handleImageLoad('image1')}
-        />
+        <div className="relative w-full h-full">
+          <Image 
+            src="/img/Goldbrand/2.jpg"
+            alt="Gold Brand Preview"
+            fill
+            className="object-cover"
+            priority
+            onLoadingComplete={() => handleImageLoad('image1')}
+          />
+        </div>
       </div>
 
       <div className="w-full py-4 md:py-10">
@@ -184,17 +189,20 @@ export default function ProjectMain() {
               { src: "/img/Goldbrand/7.jpg", key: "image4" }
             ].map((img, index) => (
               <div key={index} className='w-full h-[50vh] md:h-[82vh] relative'>
-                {!imagesLoaded[img.key as keyof typeof imagesLoaded] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                {loading[img.key as keyof typeof loading] && (
+                  <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
                   </div>
                 )}
-                <img 
-                  className='w-full border-y border-l border-white h-full object-cover'
-                  src={img.src}
-                  alt={`Gold Brand Preview ${index + 2}`}
-                  onLoad={() => handleImageLoad(img.key as keyof typeof imagesLoaded)}
-                />
+                <div className="relative w-full h-full">
+                  <Image 
+                    src={img.src}
+                    alt={`Gold Brand Preview ${index + 2}`}
+                    fill
+                    className="object-cover"
+                    onLoadingComplete={() => handleImageLoad(img.key as keyof typeof loading)}
+                  />
+                </div>
               </div>
             ))}
 
@@ -202,17 +210,20 @@ export default function ProjectMain() {
             <p className="text-sm md:text-md text-gray-300">{project.description}</p>
 
             <div className='w-full h-[50vh] md:h-[82vh] relative'>
-              {!imagesLoaded.image5 && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+              {loading.image5 && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
                 </div>
               )}
-              <img 
-                className='w-full border-y border-l border-white h-full object-cover'
-                src="/img/Goldbrand/6.jpg"
-                alt="Admin Dashboard Preview"
-                onLoad={() => handleImageLoad('image5')}
-              />
+              <div className="relative w-full h-full">
+                <Image 
+                  src="/img/Goldbrand/6.jpg"
+                  alt="Admin Dashboard Preview"
+                  fill
+                  className="object-cover"
+                  onLoadingComplete={() => handleImageLoad('image5')}
+                />
+              </div>
             </div>
           </div>
         </div>

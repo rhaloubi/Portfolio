@@ -20,10 +20,10 @@ export default function ProjectMain() {
   const containerRef = useRef<HTMLDivElement>(null);
   const SelectRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState({
-    image1: false,
-    image2: false,
-    image3: false
+  const [loading, setLoading] = useState({
+    image1: true,
+    image2: true,
+    image3: true
   });
 
   const project: Project = {
@@ -82,27 +82,31 @@ export default function ProjectMain() {
     }
   }, [isMobile]);
 
-  const handleImageLoad = (imageKey: keyof typeof imagesLoaded) => {
-    setImagesLoaded(prev => ({
+  const handleImageLoad = (imageKey: keyof typeof loading) => {
+    setLoading(prev => ({
       ...prev,
-      [imageKey]: true
+      [imageKey]: false
     }));
   };
 
   return (
     <div className="min-h-screen font-[SFCompactRounded] bg-black px-3 pt-20 text-white">
       <div className='w-full h-[50vh] md:h-[82vh] relative'>
-        {!imagesLoaded.image1 && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+        {loading.image1 && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
           </div>
         )}
-        <img 
-          className='w-full h-full object-cover'
-          src="/img/ERP/1.jpg"
-          alt=""
-          onLoad={() => handleImageLoad('image1')}
-        />
+        <div className="relative w-full h-full">
+          <Image 
+            src="/img/ERP/1.jpg"
+            alt="Project Preview"
+            fill
+            className="object-cover"
+            priority
+            onLoadingComplete={() => handleImageLoad('image1')}
+          />
+        </div>
       </div>
 
       <div className="w-full py-4 md:py-10">
@@ -156,17 +160,20 @@ export default function ProjectMain() {
 
             {[2, 3].map((imageNum, index) => (
               <div key={imageNum} className='w-full h-[50vh] md:h-[82vh] relative'>
-                {!imagesLoaded[`image${imageNum}` as keyof typeof imagesLoaded] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                {loading[`image${imageNum}` as keyof typeof loading] && (
+                  <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
                   </div>
                 )}
-                <img 
-                  className='w-full border-y border-l border-white h-full object-cover'
-                  src={`/img/ERP/${imageNum}.jpg`}
-                  alt=""
-                  onLoad={() => handleImageLoad(`image${imageNum}` as keyof typeof imagesLoaded)}
-                />
+                <div className="relative w-full h-full">
+                  <Image 
+                    src={`/img/ERP/${imageNum}.jpg`}
+                    alt={`Project Preview ${imageNum}`}
+                    fill
+                    className="object-cover"
+                    onLoadingComplete={() => handleImageLoad(`image${imageNum}` as keyof typeof loading)}
+                  />
+                </div>
               </div>
             ))}
           </div>
