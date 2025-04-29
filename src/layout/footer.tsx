@@ -248,7 +248,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row justify-between items-center mt-8 sm:mt-[12vh] gap-4">
-            <form method='post' className="flex items-center mb-2 border-b-[1px] border-white gap-4 w-full sm:w-auto">
+            <form  className="flex items-center mb-2 border-b-[1px] border-white gap-4 w-full sm:w-auto">
               <input
                 type="email"
                 className="text-[30px] sm:text-[40px] md:text-[50px] font-[TTTrailers] text-gray-300 bg-transparent outline-none cursor-pointer hover:text-gray-300 transition-colors w-full sm:w-[300px] md:w-[400px] focus:border-white"
