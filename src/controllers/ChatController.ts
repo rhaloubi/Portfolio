@@ -26,7 +26,7 @@ As I continue to grow both professionally and personally, I seek opportunities w
     
   };
 
-  async processMessage(message: string): Promise<{ response: string; session: ChatSession }> {
+  async processMessage(message: string) {
     try {
       if (!this.chat.canSendMessage()) {
         throw new Error('Daily message limit reached');
