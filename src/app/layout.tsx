@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: 'Reda Haloubi Portfolio',
     images: [
       {
-        url: '/img/opengraph-image.png', // Add an actual OG image
+        url: '/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Reda Haloubi Portfolio',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: 'Reda Haloubi - Portfolio',
     description:
       'Portfolio of Reda Haloubi, a Computer Science student and developer.',
-    images: ['/img/opengraph-image.png'], // Add an actual Twitter image
+    images: ['/opengraph-image.png'],
   },
   robots: {
     index: true,

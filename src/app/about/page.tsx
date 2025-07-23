@@ -18,7 +18,13 @@ import {
   DropdownMenuTrigger,
 } from "../../components/ui/dropdown-menu"
 import Footer from "../../layout/footer";
+import { type Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: 'About ',
+  description: 'About Reda Haloubi - a 23-year-old Computer Science student from Tangier, Morocco, passionate about technology, web development, and creative projects.',
+
+};
 
 
 export default function About() {
