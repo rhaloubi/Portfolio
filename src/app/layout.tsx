@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   },
   description:
     'Portfolio of Reda Haloubi, a 23-year-old Computer Science student from Tangier, Morocco, passionate about technology, web development, and creative projects.',
-  metadataBase: new URL('https://your-domain.com'), // Replace with your actual domain
+  metadataBase: new URL('https://haloubi-reda.clarodigi.com'), // Replace with your actual domain
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
   openGraph: {
     title: 'Reda Haloubi - Portfolio',
     description:
       'Showcasing projects and skills of Reda Haloubi, Computer Science student specializing in JavaScript, Python, React.js, and more.',
-    url: 'https://your-domain.com',
+    url: 'https://haloubi-reda.clarodigi.com',
     siteName: 'Reda Haloubi Portfolio',
     images: [
       {
