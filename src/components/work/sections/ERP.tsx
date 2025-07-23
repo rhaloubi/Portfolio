@@ -1,5 +1,6 @@
 import { Button } from "../../ui/button";
 import { useRouter } from 'next/navigation';
+import Image from "next/image";
 
 
 export default function SectionERP() {
@@ -29,10 +30,16 @@ export default function SectionERP() {
                         </div>
                     </div>
                     <div className="w-full h-[35vh] bg-gray-800 border-l border-y border-gray-500 overflow-hidden">
-                        <img 
-                            src="/img/ERP/1.jpg" 
+                        <Image 
+                            src="/img/ERP/1.jpg"
                             className="w-full h-full object-cover"
-                        />
+                            width={100}
+                            height={100}
+                            alt={"CRM system image"}
+                            loading="lazy"  // Lazy load
+                            sizes="(max-width: 768px) 100vw, 35vw"
+                            
+                            />
                     </div>
                 </div>
             </div>

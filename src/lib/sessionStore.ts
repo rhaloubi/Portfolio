@@ -4,8 +4,6 @@ export class SessionStore {
   private static instance: SessionStore;
   private sessions: Map<string, ChatSession> = new Map();
 
-  private constructor() {}
-
   static getInstance(): SessionStore {
     if (!SessionStore.instance) {
       SessionStore.instance = new SessionStore();

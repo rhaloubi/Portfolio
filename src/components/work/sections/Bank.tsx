@@ -1,5 +1,4 @@
 import { Button } from "../../ui/button";
-
 export default function SectionBank() {
     return (
         <div className=" flex flex-col font-[SFCompactRounded] md:flex-row gap-8">

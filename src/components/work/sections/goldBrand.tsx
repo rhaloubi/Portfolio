@@ -1,6 +1,6 @@
 import { Button } from "../../ui/button";
 import { useRouter } from 'next/navigation';
-
+import Image from 'next/image';
 export default function GoldBrand() {
     const router = useRouter();
     
@@ -29,9 +29,14 @@ export default function GoldBrand() {
                         </div>
                     </div>
                     <div className="w-full h-[35vh] bg-gray-800 border-l border-y border-gray-500 overflow-hidden">
-                        <img 
-                            src="/img/Goldbrand/4.jpg" 
+                        <Image
+                            src="/img/Goldbrand/4.jpg"
                             className="w-full h-full object-cover"
+                            width={100}
+                            height={100} 
+                            alt={"goldbrand image"}   
+                            loading="lazy"  // Lazy load
+                            sizes="(max-width: 768px) 100vw, 35vw"                     
                         />
                     </div>
                 </div>

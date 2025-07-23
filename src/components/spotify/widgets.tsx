@@ -40,6 +40,7 @@ export default function SpotifyWidgets(): JSX.Element {
                   height={dimensions.height}
                   uri={'spotify:playlist:0Dlo9f0ZLP1YkQ5JMwAwJa'}
                   lightTheme={true}
+                  title="My Spotify Playlist"
                 />
               </div>
             </div>

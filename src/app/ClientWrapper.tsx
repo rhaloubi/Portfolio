@@ -7,34 +7,25 @@ import Preloader from "~/components/Preloader";
 import { ReactLenis } from "../lib/lenis";
 import Header from "../layout/header";
 
-export default function ClientWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
+    // Use CSS class for overflow instead of direct style manipulation
     if (loading) {
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "100vh";
+      document.documentElement.classList.add('overflow-hidden');
     } else {
-      document.documentElement.style.overflow = "unset";
-      document.body.style.overflow = "unset";
-      document.body.style.height = "auto";
+      document.documentElement.classList.remove('overflow-hidden');
     }
     return () => {
-      document.documentElement.style.overflow = "unset";
-      document.body.style.overflow = "unset";
-      document.body.style.height = "auto";
+      document.documentElement.classList.remove('overflow-hidden');
     };
   }, [loading]);
 
   return (
     <ReactLenis root>
-      <div className={`bg-current ${loading ? "overflow-hidden h-screen pointer-events-none" : ""}`}>
+      <div className={`bg-current ${loading ? 'pointer-events-none' : ''}`}>
         <div className="relative">
           <Header />
           <div key={pathname} className="relative">

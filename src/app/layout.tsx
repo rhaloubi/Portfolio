@@ -2,6 +2,7 @@
 import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { Azeret_Mono } from "next/font/google";
+import { Bowlby_One_SC } from "next/font/google"; // Add this
 import ClientWrapper from "./ClientWrapper";
 import { type Metadata } from 'next';
 
@@ -10,7 +11,7 @@ import { type Metadata } from 'next';
 export const metadata: Metadata = {
   title: {
     default: 'Reda Haloubi - Portfolio',
-    template: '%s | Reda Haloubi Portfolio',
+    template: '%s - Reda Haloubi Portfolio',
   },
   description:
     'Portfolio of Reda Haloubi, a 23-year-old Computer Science student from Tangier, Morocco, passionate about technology, web development, and creative projects.',
@@ -52,6 +53,13 @@ export const metadata: Metadata = {
     },
   },
 };
+const bowlbyOneSC = Bowlby_One_SC({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bowlby-one-sc",
+  display: "swap",
+});
+
 const azeretMono = Azeret_Mono({
   subsets: ["latin"],
   weight: "400",
@@ -61,7 +69,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.className} ${azeretMono.className}`}>
+    <html lang="en" className={`${GeistSans.className} ${azeretMono.className} ${bowlbyOneSC.variable}`}>
       <body>
         <ClientWrapper>{children}</ClientWrapper>
       </body>

@@ -4,6 +4,7 @@ declare module 'react-spotify-widgets' {
     height?: number;
     uri: string;
     lightTheme?: boolean;
+    title: string;
   }
 
   const PlayWidget: React.FC<PlayWidgetProps>;

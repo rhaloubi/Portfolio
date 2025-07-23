@@ -1,4 +1,5 @@
 import { Button } from "../../ui/button";
+import Image from "next/image";
 
 export default function SectionPort() {
     return (
@@ -25,9 +26,14 @@ export default function SectionPort() {
                         </div>
                     </div>
                     <div className="w-full h-[35vh] bg-gray-800 border-l border-y border-gray-500 overflow-hidden">
-                        <img 
+                        <Image 
                             src="/img/Port/1.jpg" 
                             className="w-full h-full object-cover"
+                            loading="lazy"  // Lazy load
+                            sizes="(max-width: 768px) 100vw, 35vw"
+                            width={100}
+                            height={100}  
+                            alt="Portfolio image"  // Add alt for accessibility
                         />
                     </div>
                 </div>
