@@ -1,14 +1,57 @@
-"use client";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import PageTransition from "~/components/PageTransition";
+
 import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
-import Preloader from "~/components/Preloader";
-import { ReactLenis } from "../lib/lenis";
-import Header from "../layout/header";
 import { Azeret_Mono } from "next/font/google";
+import ClientWrapper from "./ClientWrapper";
+import { type Metadata } from 'next';
 
+
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Reda Haloubi - Portfolio',
+    template: '%s | Reda Haloubi Portfolio',
+  },
+  description:
+    'Portfolio of Reda Haloubi, a 23-year-old Computer Science student from Tangier, Morocco, passionate about technology, web development, and creative projects.',
+  metadataBase: new URL('https://your-domain.com'), // Replace with your actual domain
+  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  openGraph: {
+    title: 'Reda Haloubi - Portfolio',
+    description:
+      'Showcasing projects and skills of Reda Haloubi, Computer Science student specializing in JavaScript, Python, React.js, and more.',
+    url: 'https://your-domain.com',
+    siteName: 'Reda Haloubi Portfolio',
+    images: [
+      {
+        url: '/img/opengraph-image.png', // Add an actual OG image
+        width: 1200,
+        height: 630,
+        alt: 'Reda Haloubi Portfolio',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Reda Haloubi - Portfolio',
+    description:
+      'Portfolio of Reda Haloubi, a Computer Science student and developer.',
+    images: ['/img/opengraph-image.png'], // Add an actual Twitter image
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 const azeretMono = Azeret_Mono({
   subsets: ["latin"],
   weight: "400",
@@ -17,48 +60,11 @@ const azeretMono = Azeret_Mono({
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [loading, setLoading] = useState(true);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    if (loading) {
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "100vh";
-    } else {
-      document.documentElement.style.overflow = "unset";
-      document.body.style.overflow = "unset";
-      document.body.style.height = "auto";
-    }
-    return () => {
-      document.documentElement.style.overflow = "unset";
-      document.body.style.overflow = "unset";
-      document.body.style.height = "auto";
-    };
-  }, [loading]);
-
   return (
-    <html lang="en" className={`${GeistSans.variable} ${azeretMono.className} ${loading ? "h-screen overflow-hidden" : ""}`}>
-      <head>
-        <link rel="icon" href="/img/shape.svg" type="image/svg+xml" />
-      </head>
-      <ReactLenis root>
-        <body className={`bg-current ${loading ? "overflow-hidden h-screen pointer-events-none" : ""}`}>
-          <div className={`relative`}>
-            <Header/>
-            <div key={pathname} className="relative">
-              {children}
-              <PageTransition />
-            </div>
-           
-          </div>
-          {loading && (
-            <div className="fixed inset-0 z-50">
-              <Preloader onComplete={() => setLoading(false)} />
-            </div>
-          )}
-        </body>
-      </ReactLenis>
+    <html lang="en" className={`${GeistSans.className} ${azeretMono.className}`}>
+      <body>
+        <ClientWrapper>{children}</ClientWrapper>
+      </body>
     </html>
   );
 }

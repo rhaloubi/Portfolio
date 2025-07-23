@@ -1,9 +1,19 @@
 
+import { type Metadata } from 'next';
 import Hero from "../components/home/hero";
 import About from "../components/home/about";
 import Widget from '../components/spotify/widgets';
 import Footer from "../layout/footer";
 import Work from "../components/work/main";
+
+export const metadata: Metadata = {
+  title: 'Home - Reda Haloubi Portfolio',
+  description: 'Welcome to the portfolio of Reda Haloubi, a 23-year-old Computer Science student passionate about web development, music, and sports.',
+  openGraph: {
+    title: 'Home - Reda Haloubi Portfolio',
+    description: 'Explore projects, skills, and more from Reda Haloubi.',
+  },
+};
 
 export default function HomePage() {
 

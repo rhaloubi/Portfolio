@@ -1,7 +1,13 @@
-"use client";
+import { type Metadata } from 'next';
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../layout/footer";
+
+export const metadata: Metadata = {
+  title: '404 - Page Not Found | Reda Haloubi Portfolio',
+  description: 'The page you are looking for does not exist on Reda Haloubi\'s portfolio website.',
+  robots: { index: false },
+};
 
 
 export default function NotFound() {
