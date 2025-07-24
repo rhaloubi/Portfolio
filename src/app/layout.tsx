@@ -5,6 +5,7 @@ import { Azeret_Mono } from "next/font/google";
 import { Bowlby_One_SC } from "next/font/google"; // Add this
 import ClientWrapper from "./ClientWrapper";
 import { type Metadata } from 'next';
+import Script from 'next/script';
 
 
 
@@ -16,7 +17,11 @@ export const metadata: Metadata = {
   description:
     'Portfolio of Reda Haloubi, a 23-year-old Computer Science student from Tangier, Morocco, passionate about technology, web development, and creative projects.',
   metadataBase: new URL('https://haloubi-reda.clarodigi.com/'), // Replace with your actual domain
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  icons: [
+    { rel: 'icon', url: '/favicon.ico', sizes: 'any' }, 
+    { rel: 'icon', url: '/icon.svg', type: 'image/svg+xml' }, 
+    { rel: 'icon', url: '/favicon-32x32.png', "type": "image/x-icon" ,"sizes": "32x32", }
+  ],
   openGraph: {
     title: 'Reda Haloubi - Portfolio',
     description:
@@ -71,6 +76,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.className} ${azeretMono.className} ${bowlbyOneSC.variable}`}>
       <body>
+        <Script id="website-structured-data" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Reda Haloubi Portfolio",
+            "alternateName": ["Reda Haloubi", "Haloubi Portfolio"],
+            "url": "https://haloubi-reda.clarodigi.com/"
+          })}
+        </Script>
         <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
