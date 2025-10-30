@@ -106,7 +106,7 @@ export default function Footer() {
         workSection.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      await router.push('/');
+       router.push('/');
       setTimeout(() => {
         const workSection = document.querySelector('.row-title');
         if (workSection) {

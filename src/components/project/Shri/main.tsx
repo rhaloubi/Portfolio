@@ -1,3 +1,4 @@
+// main.tsx
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
@@ -31,37 +32,40 @@ export default function ProjectMain() {
     image1: true,
     image2: true,
     image3: true,
-    image4: true,
-    image5: true
+    image4: true
   });
 
   const project: Project = {
-    id: "plane",
-    title: "GoldBrand",
-    description: "Gold Brand is a Tangier-based luxury boutique specializing in high-end men’s fashion, featuring brands like Nike, MyBrand, and Adidas. I developed their custom e-commerce platform to elevate their digital presence and provide a seamless shopping experience for trend-conscious buyers.",
-    role: "Full Stack DEV",
-    collaborators: ["Next.js", "TypeScript"],
-    duration: "3 months",
+    id: "shri",
+    title: "SHRI",
+    description: "SHRI is a microservices-based marketplace platform. It includes a Next.js frontend, a dedicated user-auth service using BetterAuth, three Go microservices (product-catalog, store-management, order-management), an API Gateway (CORS + rate-limit + JWT validation), and Neon PostgreSQL databases. The system is deployed on Kubernetes and uses GitHub Actions for CI/CD (Docker Hub + SonarCloud).",
+    role: "Full Stack & DevOps",
+    collaborators: ["Next.js", "Go", "BetterAuth", "PostgreSQL (Neon)", "Kubernetes", "GitHub Actions"],
+    duration: "4 months",
     tasks: [
       {
-        id: "ECC-95",
-        title: "Optimize Battery Efficiency",
-        category: "Engineering",
-        date: "Dec 22, 2023",
-        status: "Cycle 31"
+        id: "SH-001",
+        title: "Design microservices architecture & API Gateway",
+        category: "Architecture",
+        date: "Mar 14, 2024",
+        status: "Completed"
       },
       {
-        id: "ECC-94",
-        title: "Develop Advanced Battery Management System",
-        category: "Design",
-        date: "Dec 22, 2023",
-        status: "Cycle 31"
+        id: "SH-002",
+        title: "Implement JWT-based authorization and BetterAuth flows",
+        category: "Security",
+        date: "Apr 02, 2024",
+        status: "Completed"
+      },
+      {
+        id: "SH-003",
+        title: "Kubernetes deployments + LoadBalancer topology (4 nodes, pods distribution)",
+        category: "DevOps",
+        date: "May 09, 2024",
+        status: "Completed"
       }
-      // Add more tasks as needed
     ]
   };
-
-
 
   useEffect(() => {
     const checkMobile = () => {
@@ -116,6 +120,7 @@ export default function ProjectMain() {
 
   return (
     <div className="min-h-screen font-[SFCompactRounded] bg-black px-3 pt-20 text-white">
+      {/* Main / Hero image */}
       <div className='w-full h-[50vh] md:h-[82vh] relative'>
         {loading.image1 && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
@@ -124,8 +129,8 @@ export default function ProjectMain() {
         )}
         <div className="relative w-full h-full">
           <Image 
-            src="/img/Goldbrand/2.jpg"
-            alt="Gold Brand Preview"
+            src="/img/SHRI/1.png"
+            alt="SHRI Preview"
             fill
             className="object-cover"
             priority
@@ -138,7 +143,7 @@ export default function ProjectMain() {
         <div ref={SelectRef} className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div ref={containerRef} className={`w-full md:w-1/3 ${isMobile ? 'static' : ''}`}>
             <h1 className="text-3xl md:text-6xl font-[TTTrailers]">{project.title}</h1>
-            <h3 className="text-gray-500 uppercase mb-1">E-Commerce</h3>
+            <h3 className="text-gray-500 uppercase mb-1">Microservices Marketplace</h3>
           </div>
           
           <div className="w-full md:w-2/3 flex flex-col gap-4">
@@ -154,26 +159,31 @@ export default function ProjectMain() {
                 <p>{project.duration}</p>
               </div>
               <div>
-                <h3 className="text-gray-500 uppercase mb-1">TOOLS</h3>
-                {project.collaborators.map((collaborator, index) => (
-                  <p key={index}>{collaborator}</p>
-                ))}
+                <h3 className="text-gray-500 uppercase mb-1">TECH</h3>
+                  <p >{project.collaborators[0]}</p>
+                  <p >{project.collaborators[1]}</p>
+              </div>
+              <div>
+                <h3 className="text-gray-500 uppercase mb-1">TECH</h3>
+                  <p >{project.collaborators[2]}</p>
+                  <p >{project.collaborators[3]}</p>
+                  <p >{project.collaborators[4]}</p>
               </div>
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               <div className="w-full md:w-1/2">
-                <Link href={"https://goldbrand2.vercel.app"} 
+                <Link href={"https://github.com/rhaloubi/shri"} 
                   target="_blank" 
                   className="w-full flex bg-gray-950 justify-between items-center px-3 py-4 text-gray-400 hover:bg-gray-800/80 hover:text-white rounded-md transition-all duration-300"
                 >
-                  <span>Website</span>
+                  <span>Repository / Docs</span>
                   <span className="transform transition-transform duration-300 group-hover:translate-x-2">{'>'}</span>
                 </Link>
               </div>
               
               <div className="w-full md:w-1/2">
-                <Link href={"https://github.com/rhaloubi/Goldbrand2"} 
+                <Link href={"https://github.com/rhaloubi/shri"} 
                   target="_blank" 
                   className="w-full flex justify-between bg-gray-950 items-center px-3 py-4 text-gray-400 hover:bg-gray-800/80 hover:text-white rounded-md transition-all duration-300"
                 >
@@ -183,10 +193,11 @@ export default function ProjectMain() {
               </div>
             </div>
 
+            {/* Additional preview images */}
             {[
-              { src: "/img/Goldbrand/5.jpg", key: "image2" },
-              { src: "/img/Goldbrand/3.jpg", key: "image3" },
-              { src: "/img/Goldbrand/7.jpg", key: "image4" }
+              { src: "/img/SHRI/2.png", key: "image2" },
+              { src: "/img/SHRI/3.png", key: "image3" },
+              { src: "/img/SHRI/4.png", key: "image4" }
             ].map((img, index) => (
               <div key={index} className='w-full h-[50vh] md:h-[82vh] relative'>
                 {loading[img.key as keyof typeof loading] && (
@@ -197,7 +208,7 @@ export default function ProjectMain() {
                 <div className="relative w-full h-full">
                   <Image 
                     src={img.src}
-                    alt={`Gold Brand Preview ${index + 2}`}
+                    alt={`SHRI Preview ${index + 2}`}
                     fill
                     className="object-cover"
                     onLoadingComplete={() => handleImageLoad(img.key as keyof typeof loading)}
@@ -206,25 +217,8 @@ export default function ProjectMain() {
               </div>
             ))}
 
-            <h1 className="text-2xl md:text-6xl font-[TTTrailers]">Admin Control</h1>
-            <p className="text-sm md:text-md text-gray-300">{project.description}</p>
-
-            <div className='w-full h-[50vh] md:h-[82vh] relative'>
-              {loading.image5 && (
-                <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
-                </div>
-              )}
-              <div className="relative w-full h-full">
-                <Image 
-                  src="/img/Goldbrand/6.jpg"
-                  alt="Admin Dashboard Preview"
-                  fill
-                  className="object-cover"
-                  onLoadingComplete={() => handleImageLoad('image5')}
-                />
-              </div>
-            </div>
+            <h1 className="text-2xl md:text-6xl font-[TTTrailers]">Admin & Infra</h1>
+            <p className="text-sm md:text-md text-gray-300">Kubernetes deployments, API Gateway rules (CORS & rate limits), and CI/CD integration (Docker Hub + SonarCloud) with secure secrets management for JWT and database credentials.</p>
           </div>
         </div>
       </div>

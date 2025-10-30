@@ -31,37 +31,40 @@ export default function ProjectMain() {
     image1: true,
     image2: true,
     image3: true,
-    image4: true,
-    image5: true
+    image4: true
   });
 
   const project: Project = {
-    id: "plane",
-    title: "GoldBrand",
-    description: "Gold Brand is a Tangier-based luxury boutique specializing in high-end men’s fashion, featuring brands like Nike, MyBrand, and Adidas. I developed their custom e-commerce platform to elevate their digital presence and provide a seamless shopping experience for trend-conscious buyers.",
-    role: "Full Stack DEV",
-    collaborators: ["Next.js", "TypeScript"],
-    duration: "3 months",
+    id: "asharq-car",
+    title: "Asharq Al Awsat Car",
+    description: "Asharq Al Awsat Car is a full-featured car rental and limousine booking platform built for a Tangier-based rental agency. It allows users to browse cars, view details, and make reservations online. The project includes SEO optimization, image management through Cloudinary, and a PostgreSQL database for data persistence.",
+    role: "Full Stack Developer",
+    collaborators: ["Next.js", "TypeScript", "PostgreSQL", "Cloudinary"],
+    duration: "2 months",
     tasks: [
       {
-        id: "ECC-95",
-        title: "Optimize Battery Efficiency",
-        category: "Engineering",
-        date: "Dec 22, 2023",
-        status: "Cycle 31"
+        id: "ASC-01",
+        title: "Frontend development and SEO optimization",
+        category: "Frontend",
+        date: "2025-03-01",
+        status: "Completed"
       },
       {
-        id: "ECC-94",
-        title: "Develop Advanced Battery Management System",
-        category: "Design",
-        date: "Dec 22, 2023",
-        status: "Cycle 31"
+        id: "ASC-02",
+        title: "Database and API integration (PostgreSQL)",
+        category: "Backend",
+        date: "2025-03-10",
+        status: "Completed"
+      },
+      {
+        id: "ASC-03",
+        title: "Image upload & management using Cloudinary",
+        category: "Media Handling",
+        date: "2025-03-20",
+        status: "Completed"
       }
-      // Add more tasks as needed
     ]
   };
-
-
 
   useEffect(() => {
     const checkMobile = () => {
@@ -116,6 +119,7 @@ export default function ProjectMain() {
 
   return (
     <div className="min-h-screen font-[SFCompactRounded] bg-black px-3 pt-20 text-white">
+      {/* Hero Image */}
       <div className='w-full h-[50vh] md:h-[82vh] relative'>
         {loading.image1 && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
@@ -124,8 +128,8 @@ export default function ProjectMain() {
         )}
         <div className="relative w-full h-full">
           <Image 
-            src="/img/Goldbrand/2.jpg"
-            alt="Gold Brand Preview"
+            src="/img/ASHARQ/1.png"
+            alt="Asharq Al Awsat Car Hero"
             fill
             className="object-cover"
             priority
@@ -134,16 +138,18 @@ export default function ProjectMain() {
         </div>
       </div>
 
+      {/* Content */}
       <div className="w-full py-4 md:py-10">
         <div ref={SelectRef} className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div ref={containerRef} className={`w-full md:w-1/3 ${isMobile ? 'static' : ''}`}>
             <h1 className="text-3xl md:text-6xl font-[TTTrailers]">{project.title}</h1>
-            <h3 className="text-gray-500 uppercase mb-1">E-Commerce</h3>
+            <h3 className="text-gray-500 uppercase mb-1">Car Rental Platform</h3>
           </div>
           
           <div className="w-full md:w-2/3 flex flex-col gap-4">
             <p className="text-sm md:text-md">{project.description}</p>
             
+            {/* Info Section */}
             <div className="flex flex-wrap gap-6 md:gap-12 border-b pb-2 border-gray-600">
               <div>
                 <h3 className="text-gray-500 uppercase mb-1">ROLE</h3>
@@ -154,39 +160,41 @@ export default function ProjectMain() {
                 <p>{project.duration}</p>
               </div>
               <div>
-                <h3 className="text-gray-500 uppercase mb-1">TOOLS</h3>
+                <h3 className="text-gray-500 uppercase mb-1">TECH</h3>
                 {project.collaborators.map((collaborator, index) => (
                   <p key={index}>{collaborator}</p>
                 ))}
               </div>
             </div>
 
+            {/* Links */}
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               <div className="w-full md:w-1/2">
-                <Link href={"https://goldbrand2.vercel.app"} 
+                <Link href={"https://www.asharqalawsatcar.com/cars"} 
                   target="_blank" 
                   className="w-full flex bg-gray-950 justify-between items-center px-3 py-4 text-gray-400 hover:bg-gray-800/80 hover:text-white rounded-md transition-all duration-300"
                 >
-                  <span>Website</span>
+                  <span>Live Website</span>
                   <span className="transform transition-transform duration-300 group-hover:translate-x-2">{'>'}</span>
                 </Link>
               </div>
               
               <div className="w-full md:w-1/2">
-                <Link href={"https://github.com/rhaloubi/Goldbrand2"} 
+                <Link href={"https://github.com/rhaloubi/asharqcar"} 
                   target="_blank" 
                   className="w-full flex justify-between bg-gray-950 items-center px-3 py-4 text-gray-400 hover:bg-gray-800/80 hover:text-white rounded-md transition-all duration-300"
                 >
-                  <span>Code Source</span>
+                  <span>Source Code</span>
                   <span className="transform transition-transform duration-300 group-hover:translate-x-2">{'>'}</span>
                 </Link>
               </div>
             </div>
 
+            {/* Images */}
             {[
-              { src: "/img/Goldbrand/5.jpg", key: "image2" },
-              { src: "/img/Goldbrand/3.jpg", key: "image3" },
-              { src: "/img/Goldbrand/7.jpg", key: "image4" }
+              { src: "/img/ASHARQ/2.png", key: "image2" },
+              { src: "/img/ASHARQ/3.png", key: "image3" },
+              { src: "/img/ASHARQ/4.png", key: "image4" }
             ].map((img, index) => (
               <div key={index} className='w-full h-[50vh] md:h-[82vh] relative'>
                 {loading[img.key as keyof typeof loading] && (
@@ -197,7 +205,7 @@ export default function ProjectMain() {
                 <div className="relative w-full h-full">
                   <Image 
                     src={img.src}
-                    alt={`Gold Brand Preview ${index + 2}`}
+                    alt={`Asharq Al Awsat Car Preview ${index + 2}`}
                     fill
                     className="object-cover"
                     onLoadingComplete={() => handleImageLoad(img.key as keyof typeof loading)}
@@ -206,25 +214,11 @@ export default function ProjectMain() {
               </div>
             ))}
 
-            <h1 className="text-2xl md:text-6xl font-[TTTrailers]">Admin Control</h1>
-            <p className="text-sm md:text-md text-gray-300">{project.description}</p>
-
-            <div className='w-full h-[50vh] md:h-[82vh] relative'>
-              {loading.image5 && (
-                <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
-                </div>
-              )}
-              <div className="relative w-full h-full">
-                <Image 
-                  src="/img/Goldbrand/6.jpg"
-                  alt="Admin Dashboard Preview"
-                  fill
-                  className="object-cover"
-                  onLoadingComplete={() => handleImageLoad('image5')}
-                />
-              </div>
-            </div>
+            <h1 className="text-2xl md:text-6xl font-[TTTrailers]">Features</h1>
+            <p className="text-sm md:text-md text-gray-300">
+              The platform includes a responsive car listing and reservation system, SEO-friendly routing for each vehicle, image uploads handled through Cloudinary, and a PostgreSQL database for structured data storage.  
+              Deployed with a focus on performance, accessibility, and optimized metadata for search engines.
+            </p>
           </div>
         </div>
       </div>
