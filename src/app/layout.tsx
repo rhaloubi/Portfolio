@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description:
     'Portfolio of Reda Haloubi, a 23-year-old Computer Science student from Tangier, Morocco, passionate about technology, web development, and creative projects.',
-  metadataBase: new URL('https://haloubi-reda.clarodigi.com/'), // Replace with your actual domain
+  metadataBase: new URL('https://redahaloubi.com/'), // Replace with your actual domain
   icons: [
     { rel: 'icon', url: '/favicon.ico', sizes: 'any' }, 
     { rel: 'icon', url: '/icon.svg', type: 'image/svg+xml' }, 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Reda Haloubi - Portfolio',
     description:
       'Showcasing projects and skills of Reda Haloubi, Computer Science student specializing in JavaScript, Python, React.js, and more.',
-    url: 'https://haloubi-reda.clarodigi.com/',
+    url: 'https://redahaloubi.com/',
     siteName: 'Reda Haloubi Portfolio',
     images: [
       {
@@ -85,7 +85,7 @@ export default function RootLayout({
             "@type": "WebSite",
             "name": "Reda Haloubi Portfolio",
             "alternateName": ["Reda Haloubi", "Haloubi Portfolio"],
-            "url": "https://haloubi-reda.clarodigi.com/"
+            "url": "https://redahaloubi.com/"
           })}
         </Script>
         <ClientWrapper>{children}</ClientWrapper>
