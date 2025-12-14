@@ -75,6 +75,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.className} ${azeretMono.className} ${bowlbyOneSC.variable}`}>
+      <head>
+        <meta name="google-site-verification" content="V68T7AfQe1mjJSjuYkX1U-G8xKYMDgRd5s0vow7aLew" />      
+      </head>
       <body>
         <Script id="website-structured-data" type="application/ld+json">
           {JSON.stringify({
