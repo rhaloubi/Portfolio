@@ -76,7 +76,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.className} ${azeretMono.className} ${bowlbyOneSC.variable}`}>
       <head>
-        <meta name="google-site-verification" content="V68T7AfQe1mjJSjuYkX1U-G8xKYMDgRd5s0vow7aLew" />      
+        <meta name="google-site-verification" content="V68T7AfQe1mjJSjuYkX1U-G8xKYMDgRd5s0vow7aLew" /> 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSEVKCT9XN"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-HSEVKCT9XN');
+        </script>
       </head>
       <body>
         <Script id="website-structured-data" type="application/ld+json">
