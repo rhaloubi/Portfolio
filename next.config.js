@@ -12,6 +12,21 @@ const config = {
     typescript: {
         ignoreBuildErrors: true,
     },
+    async redirects() {
+    return [
+      {
+        source: '/:path*',        
+        has: [
+          {
+            type: 'host',
+            value: 'haloubi-reda.clarodigi.com'
+          }
+        ],
+        destination: 'https://redahaloubi.com/:path*',
+        permanent: true,            
+      },
+    ]
+  },
 };
 
 export default config;
