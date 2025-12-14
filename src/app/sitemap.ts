@@ -1,7 +1,7 @@
 import { type MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://haloubi-reda.clarodigi.com';
+  const baseUrl = 'https://redahaloubi.com';
 
   return [
     {
@@ -24,6 +24,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/projects/Moratel`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/projects/AsharqCar`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/projects/Shri`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
